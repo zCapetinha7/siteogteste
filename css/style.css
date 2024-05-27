@@ -1,6 +1,6 @@
 .footer-clean {
   padding:50px 0;
-  color:#f8f9fa;
+  color:#9432f6;
 }
 
 .footer-clean h3 {
@@ -64,13 +64,13 @@ hr {
 }
 .card {
   background-color: #2b2d30;
-  color: #fff;
+  color: #9432f6;
   margin-left: 9px;
 }
 
 ::-webkit-scrollbar {
 	width: 10px;
-	color: #ffffff;
+	color: #9432f6;
 }
 
 ::-webkit-scrollbar-track {
