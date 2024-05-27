@@ -70,11 +70,11 @@ hr {
 
 ::-webkit-scrollbar {
 	width: 10px;
-	color: #2c2c2c;
+	color: #ffffff;
 }
 
 ::-webkit-scrollbar-track {
-	background: #212529;
+	background: #2c2c2c;
 }
 
 ::-webkit-scrollbar-thumb {
