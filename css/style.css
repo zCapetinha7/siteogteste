@@ -1,6 +1,6 @@
 .footer-clean {
   padding:50px 0;
-  color:#2c2c2c;
+  color:#f8f9fa;
 }
 
 .footer-clean h3 {
@@ -70,7 +70,7 @@ hr {
 
 ::-webkit-scrollbar {
 	width: 10px;
-	color: #ffffff;
+	color: #2c2c2c;
 }
 
 ::-webkit-scrollbar-track {
