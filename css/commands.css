@@ -116,7 +116,7 @@ nav {
 	text-decoration: none;
 }
 hr {
-	border: 1px solid #626bcc;
+	border: 1px solid ##9632e7;
 }
 
 .search-box {
@@ -167,7 +167,7 @@ hr {
 
 ::-webkit-scrollbar {
 	width: 10px;
-	color: #ffffff;
+	color: #9544e6;
 }
 
 ::-webkit-scrollbar-track {
@@ -180,7 +180,7 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #3c48c5;
+	background: #813cc5;
 }
 
 ::placeholder {
