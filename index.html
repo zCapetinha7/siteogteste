@@ -1,46 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/emojis/1203334950871375942.gif" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <link rel="shortcut icon" href="./img/" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/emojis/1203334950871375942.gif" />
     <title>Original Gifs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.discordapp.com/attachments/1244438708476842046/1244438736628875345/345f73ce3ee2b07426cba80c4c8c306b.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .navbar, .footer-clean, .page-footer {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .card, .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .navbar-brand, .nav-link, .dropdown-item {
+            transition: color 0.3s;
+        }
+
+        .navbar-brand:hover, .nav-link:hover, .dropdown-item:hover {
+            color: #17a2b8 !important;
+        }
+
+        .btn-info {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-info:hover {
+            background-color: #138496;
+            transform: scale(1.05);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-   <style>
-        body {
-            background-image: url('https://cdn.discordapp.com/attachments/1244438708476842046/1244438736628875345/345f73ce3ee2b07426cba80c4c8c306b.jpg?ex=66551d63&is=6653cbe3&hm=2f931541c4b492eb38b516f47892eb264b7961bbdc98fa281c6c60b36eb6ecd8&');
-        }
-   <style>
-
     <!-- Navbar -->
-
-    <div class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
         <div class="container">
-            <a href="" class="navbar-brand text-info">Original Gifs</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu"><span
-                    class="navbar-toggler-icon"></span></button>
-
+            <a href="#" class="navbar-brand text-info">Original Gifs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a href="./pages/commands.html" class="nav-link">Membros</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Membros</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="linksdrop" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Fundadores</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="linksdrop" role="button" data-toggle="dropdown" aria-expanded="false">Fundadores</a>
                         <ul class="dropdown-menu bg-dark" aria-labelledby="linksdrop">
-                            <li><a class="dropdown-item text-muted" href=".fundadores/nemo">Nemo 🔮</a></li>
-                            <li><a class="dropdown-item text-muted" href=".fundadores/fada">Fada Winx 🦋</a></li>
-                            <li><a class="dropdown-item text-muted" href=".fundadores/bella">Bella 🌸</a></li>
+                            <li><a class="dropdown-item text-muted" href="#">Nemo 🔮</a></li>
+                            <li><a class="dropdown-item text-muted" href="#">Fada Winx 🦋</a></li>
+                            <li><a class="dropdown-item text-muted" href="#">Bella 🌸</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -48,32 +81,24 @@
         </div>
     </div>
 
-
     <!-- Info -->
-
-
-    <section class="bg-dark text-light text-center py-5">
+    <section class="bg-dark text-light text-center py-5 mt-5">
         <div class="container">
-            <div class="d-flex">
-                <div>
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+                <div class="text-center text-md-left mb-4 mb-md-0">
                     <h1><span class="text-info">Original</span> Gifs</h1>
-                    <p>Seja bem vindo(a), espero que goste do nosso incrível servidor com os melhores Gifs/Icons de todo o Discord e as melhores decorações para seu perfil!</p>
-                    <a class="btn btn-info" href="">Convite</a>
+                    <p>Seja bem-vindo(a), espero que goste do nosso incrível servidor com os melhores Gifs/Icons de todo o Discord e as melhores decorações para seu perfil!</p>
+                    <a class="btn btn-info" href="#">Convite</a>
                 </div>
-                <img class="img-fluid w-50" src="./img/ArisBot.svg" alt="">
+                <img class="img-fluid w-50" src="https://via.placeholder.com/400x300" alt="">
             </div>
         </div>
     </section>
 
-
     <!-- Features -->
-
-
-    <section  id="Features" class="py-5">
+    <section id="Features" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4">
-                Sobre
-            </h2>
+            <h2 class="text-center mb-4">Sobre</h2>
             <div class="row text-center">
                 <div class="col-sm">
                     <div class="card bg-dark text-light mb-3">
@@ -93,7 +118,7 @@
                         </div>
                         <div class="card-body text-center">
                             <h4 class="card-title text-info">Suporte 24/7 Online</h4>
-                            <p class="card-text">Administradores 24/7 online caso tenha alguma denúncia ou precise de ajuda <a href="https://discord.gg/<">Clique aqui!</a></p>
+                            <p class="card-text">Administradores 24/7 online caso tenha alguma denúncia ou precise de ajuda <a href="https://discord.gg/">Clique aqui!</a></p>
                         </div>
                     </div>
                 </div>
@@ -104,7 +129,7 @@
                         </div>
                         <div class="card-body text-center">
                             <h4 class="card-title text-info">Qualidade</h4>
-                            <p class="card-text">Temos uma variedade de gifs, icons walpappers, status e muito mais.</p>
+                            <p class="card-text">Temos uma variedade de gifs, icons, wallpapers, status e muito mais.</p>
                         </div>
                     </div>
                 </div>
@@ -112,18 +137,15 @@
         </div>
     </section>
 
-
     <!-- Statics -->
-
-
     <section id="Statics" class="py-5 bg-dark text-light">
         <div class="container">
             <div class="py-2 text-center">
                 <h2>Status</h2>
             </div>
-            <div class="row align-items-center justify-content-center text-center -5">
+            <div class="row align-items-center justify-content-center text-center">
                 <div class="col">
-                    <img src="./img/statics.svg" alt="" class="img-fluid d-none d-md-block">
+                    <img src="https://via.placeholder.com/300x200" alt="" class="img-fluid d-none d-md-block">
                 </div>
                 <div class="col-sm p-5 h1">
                     <i class="bi bi-hdd-stack text-primary"></i>
@@ -131,39 +153,32 @@
                     <h5>Membros</h5>
                 </div>
                 <div class="col-sm p-5 h1">
-                    <i class="bi bi bi-people-fill text-primary"></i>
+                    <i class="bi bi-people-fill text-primary"></i>
                     <h5>3</h5>
                     <h5>Staffs</h5>
                 </div>
                 <div class="col-sm p-5 h1">
-                    <i class="bi bi bi-hash text-primary"></i>
+                    <i class="bi bi-hash text-primary"></i>
                     <h5>10</h5>
                     <h5>Patrocinadores</h5>
                 </div>
             </div>
-
         </div>
     </section>
 
+    <!-- Footer -->
+    <div class="footer-clean bg-dark">
+        <footer>
+            <div class="page-footer font-small text-light mt-5">
+                <div class="footer-copyright text-center">
+                    Created by <a href="https://instagram.com/realbeeh">Nemo</a> &copy; 2022
+                </div>
+            </div>
+        </footer>
+    </div>
 
-
-
-        <!-- footer -->
-
-        <div class="footer-clean bg-dark">
-     <footer>
-        </div>
-        <div class="page-footer font-small text-light mt-5">
-        <div class="footer-copyright text-center">Creator by
-            <a href="https://instagram/realbeeh">Nemo</a>
-            © 2022 Copyright
-          </div>
-        </div>
-    </footer>
-        </div>
-
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
