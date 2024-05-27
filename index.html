@@ -1,6 +1,5 @@
-html
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,67 +11,27 @@ html
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" href="./img/" type="image/x-icon">
     <title>Original Gifs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://cdn.discordapp.com/attachments/1244438708476842046/1244438736628875345/345f73ce3ee2b07426cba80c4c8c306b.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #f8f9fa;
-        }
-
-        .navbar, .footer-clean, .page-footer {
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .card, .dropdown-menu {
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .navbar-brand, .nav-link, .dropdown-item {
-            transition: color 0.3s;
-        }
-
-        .navbar-brand:hover, .nav-link:hover, .dropdown-item:hover {
-            color: #17a2b8 !important;
-        }
-
-        .btn-info {
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .btn-info:hover {
-            background-color: #138496;
-            transform: scale(1.05);
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        footer {
-            padding: 2rem 0;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
+
     <!-- Navbar -->
-    <div class="navbar navbar-expand-md navbar-dark fixed-top">
+
+    <div class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
-            <a href="#" class="navbar-brand text-info">Original Gifs</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a href="" class="navbar-brand text-info">Original Gifs</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu"><span
+                    class="navbar-toggler-icon"></span></button>
+
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a href="./pages/commands.html" class="nav-link">Membros</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="linksdrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fundadores</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="linksdrop" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Fundadores</a>
                         <ul class="dropdown-menu bg-dark" aria-labelledby="linksdrop">
                             <li><a class="dropdown-item text-muted" href=".fundadores/nemo">Nemo 🔮</a></li>
                             <li><a class="dropdown-item text-muted" href=".fundadores/fada">Fada Winx 🦋</a></li>
@@ -85,13 +44,15 @@ html
     </div>
 
     <!-- Info -->
-    <section class="bg-dark text-light text-center py-5 mt-5">
+    
+    <!-- Add background image and adjust text color for better visibility -->
+    <section class="bg-dark text-light text-center py-5" style="background-image: url('https://cdn.discordapp.com/attachments/1244438708476842046/1244438736628875345/345f73ce3ee2b07426cba80c4c8c306b.jpg?ex=66551d63&is=6653cbe3&hm=2f931541c4b492eb38b516f47892eb264b7961bbdc98fa281c6c60b36eb6ecd8&'); background-size: cover;">
         <div class="container">
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
-                <div class="text-center text-md-left mb-4 mb-md-0">
+            <div class="d-flex">
+                <div>
                     <h1><span class="text-info">Original</span> Gifs</h1>
                     <p>Seja bem-vindo(a), espero que goste do nosso incrível servidor com os melhores Gifs/Icons de todo o Discord e as melhores decorações para seu perfil!</p>
-                    <a class="btn btn-info" href="#">Convite</a>
+                    <a class="btn btn-info" href="">Convite</a>
                 </div>
                 <img class="img-fluid w-50" src="./img/ArisBot.svg" alt="">
             </div>
@@ -99,90 +60,19 @@ html
     </section>
 
     <!-- Features -->
-    <section id="Features" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Sobre</h2>
-            <div class="row text-center">
-                <div class="col-sm">
-                    <div class="card bg-dark text-light mb-3">
-                        <div class="h1 mt-3">
-                            <i class="bi bi-clock-history"></i>
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-info">Postagens todo dia</h4>
-                            <p class="card-text">Postamos todos os dias em pelo menos dois canais</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card bg-dark text-light mb-3">
-                        <div class="h1 mt-3">
-                            <i class="bi bi-capslock-fill"></i>
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-info">Suporte 24/7 Online</h4>
-                            <p class="card-text">Administradores 24/7 online caso tenha alguma denúncia ou precise de ajuda <a href="https://discord.gg/">Clique aqui!</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card bg-dark text-light mb-3">
-                        <div class="h1 mt-3">
-                            <i class="bi bi-folder2-open"></i>
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-info">Qualidade</h4>
-                            <p class="card-text">Temos uma variedade de gifs, icons, wallpapers, status e muito mais.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    <!-- Rest of your HTML code -->
 
     <!-- Statics -->
-    <section id="Statics" class="py-5 bg-dark text-light">
-        <div class="container">
-            <div class="py-2 text-center">
-                <h2>Status</h2>
-            </div>
-            <div class="row align-items-center justify-content-center text-center">
-                <div class="col">
-                    <img src="./img/statics.svg" alt="" class="img-fluid d-none d-md-block">
-                </div>
-                <div class="col-sm p-5 h1">
-                    <i class="bi bi-hdd-stack text-primary"></i>
-                    <h5>901</h5>
-                    <h5>Membros</h5>
-                </div>
-                <div class="col-sm p-5 h1">
-                    <i class="bi bi-people-fill text-primary"></i>
-                    <h5>3</h5>
-                    <h5>Staffs</h5>
-                </div>
-                <div class="col-sm p-5 h1">
-                    <i class="bi bi-hash text-primary"></i>
-                    <h5>10</h5>
-                    <h5>Patrocinadores</h5>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <div class="footer-clean bg-dark">
-        <footer>
-            <div class="page-footer font-small text-light mt-5">
-                <div class="footer-copyright text-center">
-                    Created by <a href="https://instagram.com/realbeeh">Nemo</a> &copy; 2022
-                </div>
-            </div>
-        </footer>
-    </div>
+    <!-- Rest of your HTML code -->
+
+    <!-- footer -->
+
+    <!-- Rest of your HTML code -->
 
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
 </html>
-
