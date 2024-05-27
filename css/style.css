@@ -18,6 +18,51 @@
   margin-bottom:0;
 }
 
+/* Adjust navbar styles to look more like Discord */
+.navbar {
+    background-color: #36393f; /* Discord dark theme background color */
+    border-bottom: 1px solid #2f3136; /* Discord dark theme border color */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #8a2be2; /* Purple color */
+}
+
+.navbar-nav .nav-link {
+    color: #b9bbbe; /* Discord dark theme text color */
+}
+
+.navbar-toggler-icon {
+    background-color: #b9bbbe; /* Discord dark theme text color */
+}
+
+.navbar-toggler {
+    border-color: #6e767e; /* Discord dark theme border color */
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+/* Adjust text color for better visibility */
+.section-info h1,
+.section-info p {
+    color: #fff; /* White text color */
+}
+
+.section-info a.btn {
+    background-color: #7289da; /* Discord brand color */
+    border-color: #7289da; /* Discord brand color */
+}
+
+.section-info a.btn:hover {
+    background-color: #677bc4; /* Discord brand color (darkened) */
+    border-color: #677bc4; /* Discord brand color (darkened) */
+}
+
+
 .footer-clean ul a {
   color:inherit;
   text-decoration:none;
