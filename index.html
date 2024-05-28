@@ -18,30 +18,74 @@
 <body>
 
     <!-- Navbar -->
+<body>
 
-    <div class="navbar navbar-expand-md bg-dark navbar-dark">
-        <div class="container">
-            <a href="" class="navbar-brand text-purple">Original Gifs</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORIGINAL GIFS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #212529;
+            padding: 10px 20px;
+        }
+        .navbar .left, .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .right a {
+            margin-left: 20px;
+            color: #9d14ff; /* Cor roxa */
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .navbar .right a:hover {
+            background-color: #575757;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .navbar .button-home {
+            background-color: #9d14ff; /* Cor roxa */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 17px;
+            border-radius: 5px;
+        }
+        .navbar .button-home:hover {
+            background-color: #575757;
+        }
+        .navbar .center-text {
+            color: #9d14ff; /* Cor roxa */
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu"><span
-                    class="navbar-toggler-icon"></span></button>
-
-            <div class="collapse navbar-collapse" id="mainmenu">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a href="./pages/commands.html" class="nav-link">Membros</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="linksdrop" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Fundadores</a>
-                        <ul class="dropdown-menu bg-dark" aria-labelledby="linksdrop">
-                            <li><a class="dropdown-item text-muted" href=".fundadores/nemo">Nemo 🔮</a></li>
-                            <li><a class="dropdown-item text-muted" href=".fundadores/fada">Fada Winx 🦋</a></li>
-                            <li><a class="dropdown-item text-muted" href=".fundadores/bella">Bella 🌸</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<div class="navbar">
+    <div class="left">
+        <button class="button-home" onclick="window.location.href='../index.html'">Home</button>
     </div>
+    <div class="center-text">ORIGINAL GIFS</div>
+    <div class="right">
+        <a href="https://discord.com/channels/1006703572601294888/1059233145406357594">Anúncios</a>
+        <a href="https://discord.com/channels/1006703572601294888/1133080431357591653">Suporte</a>
+        <a href="https://discord.com/channels/1006703572601294888/1059233147889385633">Diretrizes</a>
+    </div>
+</div>
+
+</body>
 
 
     <!-- Info -->
@@ -53,7 +97,7 @@
                 <div>
                     <h1><span class="text-purple">Original</span> Gifs</h1>
                     <p>Seja bem vindo(a), espero que goste do nosso incrível servidor com os melhores Gifs/Icons de todo o Discord e as melhores decorações para seu perfil!</p>
-                    <a class="btn btn-info" href="">Convite</a>
+        <button class="button-home" onclick="window.location.href='../index.html'">Home</button>
                 </div>
                 <img class="img-fluid w-50" src="./img/ArisBot.svg" alt="">
             </div>
