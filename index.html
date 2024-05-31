@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -36,6 +37,7 @@
             color: #9d14ff; /* Cor roxa */
             text-decoration: none;
             font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
         }
         .navbar .right a:hover {
             background-color: #575757;
@@ -51,6 +53,7 @@
             cursor: pointer;
             font-size: 17px;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
         .navbar .button-home:hover {
             background-color: #575757;
@@ -59,12 +62,24 @@
             color: #9d14ff; /* Cor roxa */
             font-size: 20px;
             font-weight: bold;
+            animation: text-fade-in 2s;
         }
         .bg-custom-dark {
             background-color: #212529 !important; /* Fundo cinza escuro */
         }
         .text-purple {
             color: #9d14ff !important; /* Cor roxa */
+        }
+        .fade-in {
+            animation: fade-in 2s;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes text-fade-in {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -79,27 +94,25 @@
     <div class="center-text">ORIGINAL GIFS</div>
     <div class="right">
         <a href="https://discord.com/channels/1006703572601294888/1059233145406357594">Anúncios</a>
-        <a href="https://discord.com/channels/1006703572601294888/1133080431357591653">Suporte</a>
+        <a href="./pages/commands.html">Memberos</a>
         <a href="https://discord.com/channels/1006703572601294888/1059233147889385633">Diretrizes</a>
     </div>
 </div>
 
 <!-- Info -->
-<section class="bg-custom-dark text-center py-5">
+<section class="bg-custom-dark text-center py-5 fade-in">
     <div class="container">
-        <div class="d-flex">
-            <div>
-                <h1><span class="text-gray">Original</span> Gifs</h1>
-                <p>Seja bem vindo(a), espero que goste do nosso incrível servidor com os melhores Gifs/Icons de todo o Discord e as melhores decorações para seu perfil!</p>
-        <button class="button-home" onclick="window.location.href='https://discord.gg/2vpK7UPzyB'">Convite</button>
-            </div>
-            <img class="img-fluid w-50" src="https://cdn.discordapp.com/attachments/1244438708476842046/1245134590025404496/image-1-removebg-preview.png?ex=6657a573&is=665653f3&hm=61ebee722022001612d1b0d8139c468394dd2930c21c67eeba2ad164278a82c1&" alt="">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <h1><span class="text-gray">Original</span> Gifs</h1>
+            <p>Seja bem vindo(a), espero que goste do nosso incrível servidor com os melhores Gifs/Icons de todo o Discord e as melhores decorações para seu perfil!</p>
+            <button class="button-home" onclick="window.location.href='https://discord.gg/2vpK7UPzyB'">Convite</button>
+            <img class="img-fluid w-50 mt-4" src="https://cdn.discordapp.com/attachments/1244438708476842046/1245134590025404496/image-1-removebg-preview.png?ex=6657a573&is=665653f3&hm=61ebee722022001612d1b0d8139c468394dd2930c21c67eeba2ad164278a82c1&" alt="">
         </div>
     </div>
 </section>
 
 <!-- Features -->
-<section id="sobre" class="py-5 bg-custom-dark">
+<section id="sobre" class="py-5 bg-custom-dark fade-in">
     <div class="container">
         <h2 class="text-center mb-4 text-purple">Sobre</h2>
         <div class="row text-center">
@@ -141,7 +154,7 @@
 </section>
 
 <!-- Statics -->
-<section id="status" class="py-5 bg-custom-dark text-light">
+<section id="status" class="py-5 bg-custom-dark text-light fade-in">
     <div class="container">
         <div class="py-2 text-center">
             <h2 class="text-purple">Status</h2>
@@ -169,7 +182,9 @@
     </div>
 </section>
 
-<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js
+
+/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
