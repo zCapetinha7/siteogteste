@@ -1,190 +1,198 @@
-html
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/emojis/1203334950871375942.gif" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <link rel="shortcut icon" href="./img/" type="image/x-icon">
-    <title>Original Gifs</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #212529; /* Fundo da página */
-            color: white; /* Texto padrão branco */
-        }
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #212529;
-            padding: 10px 20px;
-        }
-        .navbar .left, .navbar .right {
-            display: flex;
-            align-items: center;
-        }
-        .navbar .right a {
-            margin-left: 20px;
-            color: #9d14ff; /* Cor roxa */
-            text-decoration: none;
-            font-size: 17px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .navbar .right a:hover {
-            background-color: #575757;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-        .navbar .button-home {
-            background-color: #9d14ff; /* Cor roxa */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 17px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .navbar .button-home:hover {
-            background-color: #575757;
-        }
-        .navbar .center-text {
-            color: #9d14ff; /* Cor roxa */
-            font-size: 20px;
-            font-weight: bold;
-            animation: text-fade-in 2s;
-        }
-        .bg-custom-dark {
-            background-color: #212529 !important; /* Fundo cinza escuro */
-        }
-        .text-purple {
-            color: #9d14ff !important; /* Cor roxa */
-        }
-        .fade-in {
-            animation: fade-in 2s;
-        }
-        @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes text-fade-in {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Site de realnemo (perfeitodemais)" />
+    <meta name="author" content="Real Nemo" />
+    <meta property="og:description" content="Site do Nemo, um peixinho" />
+    <meta property="og:image" content="./assets/images/png" />
+    <meta property="og:type" content="website" />
+    <meta name="keywords" content="developer, programação, dev, desenvolvedor, programador, html, css, javascript, nodejs, reactjs, react, github, frontend, front-end" />
+    <meta name="robots" content="index" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Gemunu+Libre:wght@200&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="./assets/1059273408778616894.webp"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script type="module" src="./assets/js/main.js" defer></script>
+
+    <title>Real Nemo</title>
+
+   <style>
+      body {
+        background-color: #000;
+        overflow-x: hidden;
+        margin: 0;
+        height: 100vh;
+        cursor: pointer;
+      }
+
+      .star {
+        position: absolute;
+        width: 4px; /* Menor tamanho */
+        height: 4px;
+        background-color: #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        animation: twinkle 2s infinite alternate;
+      }
+
+      @keyframes twinkle {
+        0% { opacity: 1; }
+        100% { opacity: 0.3; }
+      }
     </style>
-</head>
+  </head>
+  <body>
+    <script>
+      // Função para criar uma estrela em uma posição específica
+      function createStar(x, y) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${x}px`;
+        star.style.top = `${y}px`;
+        document.body.appendChild(star);
+      }
 
-<body>
+      // Cria várias estrelas aleatórias ao carregar a página
+      function createRandomStars(count) {
+        for (let i = 0; i < count; i++) {
+          const x = Math.random() * document.documentElement.scrollWidth;
+          const y = Math.random() * document.documentElement.scrollHeight;
+          createStar(x, y);
+        }
+      }
 
-<!-- Navbar -->
-<div class="navbar">
-    <div class="left">
-        <button class="button-home" onclick="window.location.href='https://discord.gg/2vpK7UPzyB'">Convite</button>
-    </div>
-    <div class="center-text">ORIGINAL GIFS</div>
-    <div class="right">
-        <a href="https://discord.com/channels/1006703572601294888/1059233145406357594">Anúncios</a>
-        <a href="./pages/commands.html">Memberos</a>
-        <a href="https://discord.com/channels/1006703572601294888/1059233147889385633">Diretrizes</a>
-    </div>
-</div>
+      // Inicializa 200 estrelas aleatórias no site
+      createRandomStars(200);
 
-<!-- Info -->
-<section class="bg-custom-dark text-center py-5 fade-in">
-    <div class="container">
-        <div class="d-flex justify-content-center align-items-center flex-column">
-            <h1><span class="text-gray">Original</span> Gifs</h1>
-            <p>Seja bem vindo(a), espero que goste do nosso incrível servidor com os melhores Gifs/Icons de todo o Discord e as melhores decorações para seu perfil!</p>
-            <button class="button-home" onclick="window.location.href='https://discord.gg/2vpK7UPzyB'">Convite</button>
-            <img class="img-fluid w-50 mt-4" src="https://cdn.discordapp.com/icons/1006703572601294888/a_a47f0027002c1c77b291154c65bbd312.gif?size=2048" alt="">
+      // Cria uma estrela onde o usuário clica
+      document.addEventListener('click', function (e) {
+        createStar(e.pageX, e.pageY);
+      });
+
+      // Adapta o layout para gerar mais estrelas ao rolar para o final da página
+      window.addEventListener('scroll', function () {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+          createRandomStars(50); // Adiciona mais 50 estrelas quando se aproxima do fim da página
+        }
+      });
+    </script>
+  </body>
+    <nav id="navigation">
+      <div class="wrapper">
+        <a class="logo close" href="#home"> 𝗥𝗲𝗮𝗹 𝗡𝗲𝗺𝗼 </a>
+        <div class="menu">
+          <ul>
+            <li>
+              <a id="aboutNav" class="close" href="https://instagram.com/realbeeh">𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺</a>
+            </li>
+            <li>
+              <a id="projectsNav" class="close" href="https://youtu.be/dkWyAlBUY20?si=kySS5i2LsmhxqAn2">𝗬𝗼𝘂𝘁𝘂𝗯𝗲</a>
+            </li>
+            <li>
+              <a id="knowledgeNav" class="close" href="https://discord.gg/2vpK7UPzyB">𝗗𝗶𝘀𝗰𝗼𝗿𝗱</a>
+            </li>
+            <li>
+              <a id="contactNav" class="close" href="https://www.threads.net/@realbeeh">𝗧𝗵𝗿𝗲𝗮𝗱𝘀</a>
+            </li>
+          </ul>
         </div>
+
+        <button
+          aria-expanded="false"
+          aria-label="Abrir menu"
+          class="open-menu open"
+        >
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 20H30"
+              stroke="#00856F"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10 12H30"
+              stroke="#00856F"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18 28L30 28"
+              stroke="#00856F"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <button
+          aria-expanded="true"
+          aria-label="Fechar menu"
+          class="close-menu close"
+        >
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M30 10L10 30M10 10L30 30"
+              stroke="#FFFAF1"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <section id="home">
+      <div class="wrapper">
+        <div class="col-a">
+          <header>
+            <h4>Olá Pessoinhas do Discord 🌎</h4>
+            <h1>Eu sou o Nemo,</h1>
+          </header>
+          <div class="content">
+<p class="line typing">
+Feliz aquele que superou seu ego.
+</p>
+              </div>
     </div>
-</section>
-
-<!-- Features -->
-<section id="sobre" class="py-5 bg-custom-dark fade-in">
-    <div class="container">
-        <h2 class="text-center mb-4 text-purple">Sobre</h2>
-        <div class="row text-center">
-            <div class="col-sm">
-                <div class="card bg-dark text-light mb-3">
-                    <div class="h1 mt-3">
-                        <i class="bi bi-clock-history"></i>
-                    </div>
-                    <div class="card-body text-center">
-                        <h4 class="card-title text-purple">Postagens todo dia</h4>
-                        <p class="card-text">Postamos todos os dias em pelo menos dois canais</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card bg-dark text-light mb-3">
-                    <div class="h1 mt-3">
-                        <i class="bi bi-capslock-fill"></i>
-                    </div>
-                    <div class="card-body text-center">
-                        <h4 class="card-title text-purple">Suporte 24/7 Online</h4>
-                        <p class="card-text">Administradores 24/7 online caso tenha alguma denúncia ou precise de ajuda <a href="https://discord.gg/">Clique aqui!</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card bg-dark text-light mb-3">
-                    <div class="h1 mt-3">
-                        <i class="bi bi-folder2-open"></i>
-                    </div>
-                    <div class="card-body text-center">
-                        <h4 class="card-title text-purple">Qualidade</h4>
-                        <p class="card-text">Temos uma variedade de gifs, icons walpappers, status e muito mais.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="col-b">
+           <img
+            src="assets/images/atlmetadinha1.png"
+            alt="Icon Nemo"
+            id="Icon nemo"
+          />
         </div>
-    </div>
-</section>
-
-<!-- Statics -->
-<section id="status" class="py-5 bg-custom-dark text-light fade-in">
-    <div class="container">
-        <div class="py-2 text-center">
-            <h2 class="text-purple">Status</h2>
-        </div>
-        <div class="row align-items-center justify-content-center text-center -5">
-            <div class="col">
-                <img src="https://cdn.discordapp.com/attachments/1059233129484791808/1245065042836193412/image-removebg-preview.png?ex=665764ae&is=6656132e&hm=6541c2f852ab7e06659dca43d209021ce083ba4e90db5a97418ed70924d261c8&" alt="" class="img-fluid d-none d-md-block">
-            </div>
-            <div class="col-sm p-5 h1">
-                <i class="bi bi-hdd-stack text-primary"></i>
-                <h5 class="text-white">901</h5>
-                <h5 class="text-purple">Membros</h5>
-            </div>
-            <div class="col-sm p-5 h1">
-                <i class="bi bi-people-fill text-primary"></i>
-                <h5 class="text-white">3</h5>
-                <h5 class="text-purple">Staffs</h5>
-            </div>
-            <div class="col-sm p-5 h1">
-                <i class="bi bi-hash text-primary"></i>
-                <h5 class="text-white">10</h5>
-                <h5 class="text-purple">Patrocinadores</h5>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script src="./js
-
-/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
-</html>
+      </div>
+    </section>
+    </html>
