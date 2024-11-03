@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Original Gifs - Comunidade de Gifs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilo Global */
         body {
@@ -14,7 +15,7 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         /* Fundo roxo com estrelas piscantes */
         .background {
             background-color: #1c1c1c;
@@ -54,22 +55,33 @@
             z-index: 1;
         }
 
+        /* Estilo do logo */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #a64ac9;
+        }
+
         /* Menu de navegação estilizado */
         nav {
             display: flex;
             gap: 15px;
         }
+
         nav a {
-            color: #a64ac9;
+            color: #ffffff;
             font-weight: bold;
             padding: 10px 15px;
             border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
             transition: all 0.3s;
         }
+
         nav a:hover {
             background-color: #a64ac9;
-            color: #ffffff;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         /* Navegação para mobile */
@@ -115,15 +127,15 @@
 <div class="background"></div>
 
 <header>
+    <div class="logo">OG.</div>
     <nav>
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#gifs">Gifs</a>
-        <a href="#comunidade">Comunidade</a>
-        <a href="#contato">Contato</a>
+        <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+        <a href="#sobre"><i class="fas fa-info-circle"></i> Sobre</a>
+        <a href="#gifs"><i class="fas fa-image"></i> Gifs</a>
+        <a href="#comunidade"><i class="fas fa-users"></i> Comunidade</a>
+        <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
     </nav>
 </header>
-
 <section class="hero">
     <img src="https://cdn.discordapp.com/icons/1006703572601294888/a_a47f0027002c1c77b291154c65bbd312.gif?size=2048" alt="Imagem do servidor Original Gifs">
     <h1>ORIGINAL GIFS™ 🍇</h1>
