@@ -1,200 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Site de realnemo (perfeitodemais)" />
-    <meta name="author" content="Real Nemo" />
-    <meta property="og:description" content="Site do Nemo, um peixinho" />
-    <meta property="og:image" content="./assets/images/png" />
-    <meta property="og:type" content="website" />
-    <meta name="keywords" content="developer, programação, dev, desenvolvedor, programador, html, css, javascript, nodejs, reactjs, react, github, frontend, front-end" />
-    <meta name="robots" content="index" />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Gemunu+Libre:wght@200&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="shortcut icon"
-      href="./assets/1059273408778616894.webp"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script type="module" src="./assets/js/main.js" defer></script>
-
-    <title>Original Gifs</title>
-
-   <style>
-      body {
-        background-color: #000;
-        overflow-x: hidden;
-        margin: 0;
-        height: 100vh;
-        cursor: pointer;
-      }
-
-      .star {
-        position: absolute;
-        width: 4px; /* Menor tamanho */
-        height: 4px;
-        background-color: #fff;
-        border-radius: 50%;
-        box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
-        animation: twinkle 2s infinite alternate;
-      }
-
-      @keyframes twinkle {
-        0% { opacity: 1; }
-        100% { opacity: 0.3; }
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original Gifs - Comunidade de Gifs</title>
+    <style>
+        /* Estilo Global */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: #ffffff;
+        }
+        a {
+            color: #a64ac9;
+            text-decoration: none;
+        }
+        header, footer {
+            padding: 20px;
+            background-color: #2a2a2a;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px;
+        }
+        .hero img {
+            border: 5px solid #a64ac9;
+            border-radius: 10px;
+        }
+        .hero button {
+            padding: 15px 25px;
+            background-color: #a64ac9;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .hero button:hover {
+            background-color: #8e3bbd;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+        }
     </style>
-  </head>
-  <body>
-    <script>
-      // Função para criar uma estrela em uma posição específica
-      function createStar(x, y) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.left = `${x}px`;
-        star.style.top = `${y}px`;
-        document.body.appendChild(star);
-      }
+</head>
+<body>
 
-      // Cria várias estrelas aleatórias ao carregar a página
-      function createRandomStars(count) {
-        for (let i = 0; i < count; i++) {
-          const x = Math.random() * document.documentElement.scrollWidth;
-          const y = Math.random() * document.documentElement.scrollHeight;
-          createStar(x, y);
-        }
-      }
-
-      // Inicializa 200 estrelas aleatórias no site
-      createRandomStars(200);
-
-      // Cria uma estrela onde o usuário clica
-      document.addEventListener('click', function (e) {
-        createStar(e.pageX, e.pageY);
-      });
-
-      // Adapta o layout para gerar mais estrelas ao rolar para o final da página
-      window.addEventListener('scroll', function () {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-          createRandomStars(50); // Adiciona mais 50 estrelas quando se aproxima do fim da página
-        }
-      });
-    </script>
-  </body>
-    <nav id="navigation">
-      <div class="wrapper">
-        <a class="logo close" href="#home"> Original Gifs </a>
-        <div class="menu">
-          <ul>
-            <li>
-              <a id="aboutNav" class="close" href="https://instagram.com/realbeeh">𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺</a>
-            </li>
-            <li>
-              <a id="projectsNav" class="close" href="https://youtu.be/dkWyAlBUY20?si=kySS5i2LsmhxqAn2">𝗬𝗼𝘂𝘁𝘂𝗯𝗲</a>
-            </li>
-            <li>
-              <a id="knowledgeNav" class="close" href="https://discord.gg/2vpK7UPzyB">𝗗𝗶𝘀𝗰𝗼𝗿𝗱</a>
-            </li>
-            <li>
-              <a id="contactNav" class="close" href="https://www.threads.net/@realbeeh">𝗧𝗵𝗿𝗲𝗮𝗱𝘀</a>
-            </li>
-          </ul>
-        </div>
-
-        <button
-          aria-expanded="false"
-          aria-label="Abrir menu"
-          class="open-menu open"
-        >
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 20H30"
-              stroke="#00856F"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10 12H30"
-              stroke="#00856F"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M18 28L30 28"
-              stroke="#00856F"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-
-        <button
-          aria-expanded="true"
-          aria-label="Fechar menu"
-          class="close-menu close"
-        >
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M30 10L10 30M10 10L30 30"
-              stroke="#FFFAF1"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
+<header>
+    <div><img src="logo.png" alt="Logo Original Gifs" style="height: 50px;"></div>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#gifs">Gifs</a>
+        <a href="#comunidade">Comunidade</a>
+        <a href="#contato">Contato</a>
     </nav>
-    <section id="home">
-      <div class="wrapper">
-        <div class="col-a">
-          <header>
-            <h4>Olá Pessoinhas do Discord 🌎</h4>
-            <h1>SObre a Original,</h1>
-          </header>
-          <div class="content">
-<p class="line typing">
-          <p>
-              Oi, pessoal! Sou ******* mas podem me chamar de Nemo ou Peixinho. Entrei no Discord em 2018 e, embora tenha me afastado algumas vezes, sempre volto! Sou criador de bots e servidores, atualmente fundador da StarFamily e gestor da 7LifeDrugs. Também sou o criador da Original Gifs. É um prazer estar aqui com vocês!            </p>
+    <a href="https://discord.gg/link" target="_blank"><button>Junte-se ao Servidor</button></a>
+</header>
 
-</p>
-              </div>
+<section class="hero">
+    <img src="imagem-principal.jpg" alt="Imagem do servidor Original Gifs" width="80%">
+    <h1>Bem-vindo ao Original Gifs</h1>
+    <p>Um espaço único para você compartilhar, criar e se divertir com GIFs. Junte-se a uma comunidade de criadores e fãs de animações.</p>
+    <button>Entrar Agora</button>
+</section>
+
+<section id="gifs">
+    <h2>Gifs Populares</h2>
+    <!-- Aqui você pode adicionar um carrossel de gifs com CSS ou JavaScript -->
+</section>
+
+<footer>
+    <p>&copy; 2024 Original Gifs. Criado por Real Nemo.</p>
+    <div>
+        <a href="#politica">Política de Privacidade</a> | 
+        <a href="#termos">Termos de Uso</a> |
+        <a href="#suporte">Suporte</a>
     </div>
-        <div class="col-b">
-           <img
-            src="img/ArisBot.svg
-            alt="Icon Nemo"
-            id="Icon nemo"
-          />
-        </div>
-      </div>
-    </section>
+</footer>
+
+</body>
 </html>
