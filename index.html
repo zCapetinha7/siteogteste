@@ -14,6 +14,7 @@
             overflow: hidden;
             position: relative;
         }
+        
         /* Fundo roxo com estrelas piscantes */
         .background {
             background-color: #1c1c1c;
@@ -26,38 +27,67 @@
             z-index: -2;
             overflow: hidden;
         }
-        /* Estilo das estrelas piscantes */
+
+        /* Estilo das estrelas */
         .star {
             position: absolute;
             width: 3px;
             height: 3px;
             background-color: #ffffff;
             border-radius: 50%;
-            opacity: 0;
-            animation: twinkle 2s infinite;
+            opacity: 0.7;
+            animation: twinkle 2s infinite alternate;
         }
+        
         @keyframes twinkle {
-            0%, 100% { opacity: 0; }
+            0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
         }
-        /* Cabeçalho */
+
+        /* Cabeçalho com navegação estilizada */
         header {
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: transparent;
             position: relative;
             z-index: 1;
         }
-        header nav a {
+
+        /* Menu de navegação estilizado */
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
             color: #a64ac9;
-            margin: 0 10px;
-            transition: color 0.3s;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
         }
-        header nav a:hover {
+        nav a:hover {
+            background-color: #a64ac9;
             color: #ffffff;
+            transform: scale(1.1);
         }
+
+        /* Navegação para mobile */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav a {
+                padding: 12px 20px;
+                font-size: 1.1em;
+            }
+        }
+
         /* Seção principal (Hero) */
         .hero {
             text-align: center;
@@ -108,8 +138,6 @@
         star.style.left = `${x}px`;
         star.style.top = `${y}px`;
         document.body.appendChild(star);
-        
-        setTimeout(() => star.remove(), 2000); // Remove a estrela após 2 segundos
     }
 
     // Função para adicionar várias estrelas no fundo
@@ -122,7 +150,7 @@
     // Adiciona estrelas aleatórias ao carregar a página
     addRandomStars();
 
-    // Adiciona uma estrela ao clicar
+    // Adiciona uma estrela ao clicar, e ela permanece
     document.addEventListener('click', (event) => {
         createStar(event.clientX, event.clientY);
     });
