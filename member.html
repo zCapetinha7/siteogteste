@@ -75,6 +75,7 @@
 
         .members-wrapper {
             display: flex;
+            position: absolute; /* Permite o movimento fora da tela */
             transition: transform 1s ease; /* Animação mais suave */
         }
 
@@ -165,26 +166,25 @@
 
     <script>
         const membersWrapper = document.getElementById('membersWrapper');
-        let currentIndex = 0;
         const totalMembers = 5; // Total de membros
+        let currentIndex = 0;
 
         function showNextMember() {
             currentIndex++;
-            if (currentIndex >= totalMembers) { // Ao chegar ao final, reinicia
-                currentIndex = 0; // Volta ao primeiro membro
-                membersWrapper.style.transition = "none"; // Remove a transição
-                membersWrapper.style.transform = `translateX(0%)`; // Reseta a posição
-                setTimeout(() => {
-                    membersWrapper.style.transition = "transform 1s ease"; // Restaura a transição
-                }, 50);
-            } else {
-                membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / totalMembers}%)`;
+            if (currentIndex >= totalMembers) { // Quando atingir o final, reinicia o índice
+                currentIndex = 0;
             }
+
+            membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / totalMembers}%)`;
         }
 
-        setInterval(showNextMember, 4000); // Trocar a cada 4 segundos
+        function startAnimation() {
+            setInterval(showNextMember, 4000); // Troca a cada 4 segundos
+        }
 
         document.addEventListener("DOMContentLoaded", () => {
+            startAnimation();
+
             const body = document.body;
 
             function createStar(x, y) {
