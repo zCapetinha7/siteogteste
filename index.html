@@ -91,7 +91,123 @@
         .icons a:hover img {
             transform: scale(1.1);
         }
+/* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 150px 50px 50px;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            color: #a64ac9;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            color: #a64ac9;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .button {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button.primary {
+            background-color: #a64ac9;
+            color: #ffffff;
+        }
+
+        .button.primary:hover {
+            background-color: #8b2b9e;
+        }
+
+        .button.secondary {
+            background-color: #444444;
+            color: #ffffff;
+        }
+
+        .button.secondary:hover {
+            background-color: #333333;
+        }
+
+        /* Video Frame */
+        .video-frame iframe {
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px;
+            }
+
+            .navbar .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .video-frame iframe {
+                width: 100%;
+                height: 200px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* CSS para as estrelas */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
     </style>
+
 </head>
 <body>
     <!-- Navegação -->
