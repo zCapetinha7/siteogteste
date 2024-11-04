@@ -75,8 +75,8 @@
 
         .members-wrapper {
             display: flex;
-            transition: transform 0.5s ease;
-            width: calc(100% * 10); /* Ajuste para o número total de membros + clones */
+            transition: transform 1s ease; /* Animação mais suave */
+            width: calc(100% * 7); /* Ajuste para 5 membros + 2 clones */
         }
 
         .member {
@@ -130,7 +130,7 @@
     <!-- Seção de Membros -->
     <div class="members-container">
         <div class="members-wrapper" id="membersWrapper">
-            <!-- Membros originais -->
+            <!-- Membros -->
             <div class="member">
                 <img src="assets/member1.jpg" alt="Membro 1">
                 <h2>Nome 1</h2>
@@ -161,25 +161,7 @@
                 <p>Cargo 5</p>
                 <p>Descrição do membro 5.</p>
             </div>
-            <div class="member">
-                <img src="assets/member6.jpg" alt="Membro 6">
-                <h2>Nome 6</h2>
-                <p>Cargo 6</p>
-                <p>Descrição do membro 6.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member7.jpg" alt="Membro 7">
-                <h2>Nome 7</h2>
-                <p>Cargo 7</p>
-                <p>Descrição do membro 7.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member8.jpg" alt="Membro 8">
-                <h2>Nome 8</h2>
-                <p>Cargo 8</p>
-                <p>Descrição do membro 8.</p>
-            </div>
-            <!-- Clones dos membros para o efeito infinito -->
+            <!-- Clones dos membros para o efeito suave -->
             <div class="member">
                 <img src="assets/member1.jpg" alt="Membro 1">
                 <h2>Nome 1</h2>
@@ -191,42 +173,6 @@
                 <h2>Nome 2</h2>
                 <p>Cargo 2</p>
                 <p>Descrição do membro 2.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member3.jpg" alt="Membro 3">
-                <h2>Nome 3</h2>
-                <p>Cargo 3</p>
-                <p>Descrição do membro 3.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member4.jpg" alt="Membro 4">
-                <h2>Nome 4</h2>
-                <p>Cargo 4</p>
-                <p>Descrição do membro 4.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member5.jpg" alt="Membro 5">
-                <h2>Nome 5</h2>
-                <p>Cargo 5</p>
-                <p>Descrição do membro 5.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member6.jpg" alt="Membro 6">
-                <h2>Nome 6</h2>
-                <p>Cargo 6</p>
-                <p>Descrição do membro 6.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member7.jpg" alt="Membro 7">
-                <h2>Nome 7</h2>
-                <p>Cargo 7</p>
-                <p>Descrição do membro 7.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member8.jpg" alt="Membro 8">
-                <h2>Nome 8</h2>
-                <p>Cargo 8</p>
-                <p>Descrição do membro 8.</p>
             </div>
         </div>
     </div>
@@ -234,23 +180,24 @@
     <script>
         const membersWrapper = document.getElementById('membersWrapper');
         let currentIndex = 0;
-        const totalMembers = 8; // Total de membros originais
+        const totalMembers = 5; // Total de membros originais
 
         function showNextMember() {
             currentIndex++;
-            if (currentIndex >= totalMembers + totalMembers) { // 8 membros + 8 clones
-                currentIndex = 0; // Reinicia a animação
-                membersWrapper.style.transition = "none"; // Remove a transição ao reiniciar
-                membersWrapper.style.transform = `translateX(0)`; // Volta para o início
+            if (currentIndex > totalMembers) { // Ao chegar ao final, reinicia
+                currentIndex = 1; // Começa do primeiro membro
+                membersWrapper.style.transition = "none"; // Remove a transição
+                membersWrapper.style.transform = `translateX(-${(totalMembers * 100) / (totalMembers + 2)}%)`; // Move para a posição do primeiro
                 setTimeout(() => {
-                    membersWrapper.style.transition = "transform 0.5s ease"; // Adiciona a transição de volta
-                }, 20); // Um pequeno delay para a transição voltar
+                    membersWrapper.style.transition = "transform 1s ease"; // Restaura a transição
+                    membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / (totalMembers + 2)}%)`; // Move suavemente
+                }, 50);
             } else {
-                membersWrapper.style.transform = `translateX(-${currentIndex * 100 / (totalMembers + totalMembers)}%)`;
+                membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / (totalMembers + 2)}%)`;
             }
         }
 
-        setInterval(showNextMember, 3000); // Trocar a cada 3 segundos
+        setInterval(showNextMember, 4000); // Trocar a cada 4 segundos
 
         document.addEventListener("DOMContentLoaded", () => {
             const body = document.body;
