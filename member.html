@@ -76,7 +76,7 @@
         .members-wrapper {
             display: flex;
             transition: transform 0.5s ease;
-            width: calc(100% * 3); /* Ajuste conforme o número de membros */
+            width: calc(100% * 5); /* Ajuste para o número total de membros */
         }
 
         .member {
@@ -148,18 +148,50 @@
                 <p>Cargo 3</p>
                 <p>Descrição do membro 3.</p>
             </div>
-            <!-- Adicione mais membros conforme necessário -->
+            <div class="member">
+                <img src="assets/member4.jpg" alt="Membro 4">
+                <h2>Nome 4</h2>
+                <p>Cargo 4</p>
+                <p>Descrição do membro 4.</p>
+            </div>
+            <div class="member">
+                <img src="assets/member5.jpg" alt="Membro 5">
+                <h2>Nome 5</h2>
+                <p>Cargo 5</p>
+                <p>Descrição do membro 5.</p>
+            </div>
+            <div class="member">
+                <img src="assets/member6.jpg" alt="Membro 6">
+                <h2>Nome 6</h2>
+                <p>Cargo 6</p>
+                <p>Descrição do membro 6.</p>
+            </div>
+            <div class="member">
+                <img src="assets/member7.jpg" alt="Membro 7">
+                <h2>Nome 7</h2>
+                <p>Cargo 7</p>
+                <p>Descrição do membro 7.</p>
+            </div>
+            <div class="member">
+                <img src="assets/member8.jpg" alt="Membro 8">
+                <h2>Nome 8</h2>
+                <p>Cargo 8</p>
+                <p>Descrição do membro 8.</p>
+            </div>
         </div>
     </div>
 
     <script>
         const membersWrapper = document.getElementById('membersWrapper');
         let currentIndex = 0;
-        const totalMembers = 3; // Atualize para o número total de membros
+        const totalMembers = 8; // Total de membros agora
 
         function showNextMember() {
-            currentIndex = (currentIndex + 1) % totalMembers;
-            membersWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            currentIndex++;
+            if (currentIndex >= totalMembers) {
+                currentIndex = 0;
+            }
+            membersWrapper.style.transform = `translateX(-${currentIndex * 100 / totalMembers}%)`;
         }
 
         setInterval(showNextMember, 3000); // Trocar a cada 3 segundos
