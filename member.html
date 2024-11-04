@@ -76,7 +76,6 @@
         .members-wrapper {
             display: flex;
             transition: transform 1s ease; /* Animação mais suave */
-            width: calc(100% * 7); /* Ajuste para 5 membros + 2 clones */
         }
 
         .member {
@@ -161,39 +160,25 @@
                 <p>Cargo 5</p>
                 <p>Descrição do membro 5.</p>
             </div>
-            <!-- Clones dos membros para o efeito suave -->
-            <div class="member">
-                <img src="assets/member1.jpg" alt="Membro 1">
-                <h2>Nome 1</h2>
-                <p>Cargo 1</p>
-                <p>Descrição do membro 1.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member2.jpg" alt="Membro 2">
-                <h2>Nome 2</h2>
-                <p>Cargo 2</p>
-                <p>Descrição do membro 2.</p>
-            </div>
         </div>
     </div>
 
     <script>
         const membersWrapper = document.getElementById('membersWrapper');
         let currentIndex = 0;
-        const totalMembers = 5; // Total de membros originais
+        const totalMembers = 5; // Total de membros
 
         function showNextMember() {
             currentIndex++;
-            if (currentIndex > totalMembers) { // Ao chegar ao final, reinicia
-                currentIndex = 1; // Começa do primeiro membro
+            if (currentIndex >= totalMembers) { // Ao chegar ao final, reinicia
+                currentIndex = 0; // Volta ao primeiro membro
                 membersWrapper.style.transition = "none"; // Remove a transição
-                membersWrapper.style.transform = `translateX(-${(totalMembers * 100) / (totalMembers + 2)}%)`; // Move para a posição do primeiro
+                membersWrapper.style.transform = `translateX(0%)`; // Reseta a posição
                 setTimeout(() => {
                     membersWrapper.style.transition = "transform 1s ease"; // Restaura a transição
-                    membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / (totalMembers + 2)}%)`; // Move suavemente
                 }, 50);
             } else {
-                membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / (totalMembers + 2)}%)`;
+                membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / totalMembers}%)`;
             }
         }
 
