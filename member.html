@@ -237,43 +237,308 @@
         </div>
     </nav>
 
-    <!-- Seção Principal -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Melhor servidor de Gifs</h1>
-            <p class="description">
-                <span class="highlight">Original Gifs</span> é o seu lugar para encontrar gifs, banners e ícones exclusivos para personalizar seu perfil e servidor no Discord.
-            </p>
-            <div class="buttons">
-                <a href="https://discord.gg/originalgifs" class="button primary">Servidor</a>
-                <a href="https://discord.com/channels/1006703572601294888/1133080431357591653" class="button secondary">Abrir Ticket</a>
+    <div class="container">
+        <section style="margin-top: 9%;">
+            <div class="row">
+                <div class="col-sm-6 my-1">
+                    <h2 class="fw-bold">Membros Importantes</h2>
+                    <p class="command-descreption">Veja os membros importantes na Original Gifs</p>
+                </div>
+            <hr>
+        </section>
+        <div class="mt-4"></div>
+        <div class="row">
+            <div class="col-md-4 my-2">
+                <div class="card p-3">
+                    <h5>Categorias</h5>
+                    <hr />
+                    <button onclick="active(this)" id="CategoryBtnAll" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class="fad fa-icons ttt"></i>&nbsp; Todos os membros</button>
+                    
+                        <button onclick="active(this)" id="CategoryBtn0" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-gift ttt'></i>&nbsp; Fundadores</button>
+                    
+                        <button onclick="active(this)" id="CategoryBtn1" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-globe-europe ttt'></i>&nbsp; Administradores</button>
+                    
+                        <button onclick="active(this)" id="CategoryBtn2" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-hammer-war ttt'></i>&nbsp;&nbsp; Patrocinadores</button>
+                    
+                        <button onclick="active(this)" id="CategoryBtn3" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fas fa-crown ttt'></i>&nbsp;&nbsp; Boosters Premium</button>
+                    
+                </div>
+            </div>
+            <div class="col-md-8 my-2">
+                <input type="text" class="w-100 search-box" oninput="search(this.value)" placeholder="Pesquise um membro" />
+                
+                    
+                        <div class="mt-4"></div>
+                    
+                    <div class="commands-section" id="Category0">
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="nemo">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fnemo">
+                                             Nemo 🔮 / perfeitodemais&nbsp; <span class="command-descreption">- 1037185561422737468</span>
+                                        </button>
+                                    </h2>
+                                    <div id="fnemo" class="accordion-collapse collapse" data-bs-parent="#nemo">
+                                        <div class="accordion-body">
+                                            <span>Fundador e Creator</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Fundador des de: 9 de agosto de 2022 às 20:20
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="fada">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ffada">
+                                             Fada Winx 🦋 / fadawinx&nbsp; <span class="command-descreption">- 514255717377638403</span>
+                                        </button>
+                                    </h2>
+                                    <div id="ffada" class="accordion-collapse collapse" data-bs-parent="#fada">
+                                        <div class="accordion-body">
+                                            <span>Fundadora e Posse</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Fundadora des de: 20 de setembro de 2023 às 15:27
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="bella">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fbella">
+                                             Bella 🌸 / antivocekkj.&nbsp; <span class="command-descreption">- 813856336176611379</span>
+                                        </button>
+                                    </h2>
+                                    <div id="fbella" class="accordion-collapse collapse" data-bs-parent="#bella">
+                                        <div class="accordion-body">
+                                            <span>Fundadora e Administradora</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Fundadora des de: 28 de março de 2024 às 18:52
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                    </div>
+                
+                    
+                    <div class="commands-section" id="Category1">
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="help">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fhelp">
+                                             Indefinido / Indefinido&nbsp; <span class="command-descreption">- Indefinido</span>
+                                        </button>
+                                    </h2>
+                                    <div id="fhelp" class="accordion-collapse collapse" data-bs-parent="#help">
+                                        <div class="accordion-body">
+                                            <span>Indefinido</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Indefinido
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="ping">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fping">
+                                             Indefinido / Indefinido&nbsp; <span class="command-descreption">- Indefinido</span>
+                                        </button>
+                                    </h2>
+                                    <div id="fping" class="accordion-collapse collapse" data-bs-parent="#ping">
+                                        <div class="accordion-body">
+                                            <span>Indefinido</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Indefinido
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="invite">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#finvite">
+                                             Indefinido / Indefinido&nbsp; <span class="command-descreption">- Indefinido</span>
+                                        </button>
+                                    </h2>
+                                    <div id="finvite" class="accordion-collapse collapse" data-bs-parent="#invite">
+                                        <div class="accordion-body">
+                                            <span>Indefinido</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Indefinido
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+                    
+                    <div class="commands-section" id="Category2">
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="leaderboard">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fleaderboard">
+                                             Indefinido / Indefinido&nbsp; <span class="command-descreption">- Indefinido</span>
+                                        </button>
+                                    </h2>
+                                    <div id="fleaderboard" class="accordion-collapse collapse" data-bs-parent="#leaderboard">
+                                        <div class="accordion-body">
+                                            <span>Indefinido</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Indefinido
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+                    
+                    <div class="commands-section" id="Category3">
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="reactionrole">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#freactionrole">
+                                             Indefinido / Indefinido&nbsp; <span class="command-descreption">- Indefinido</span>
+                                        </button>
+                                    </h2>
+                                    <div id="freactionrole" class="accordion-collapse collapse" data-bs-parent="#reactionrole">
+                                        <div class="accordion-body">
+                                            <span>Indefinido</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Indefinido
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="slowmode">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fslowmode">
+                                             Indefinido / Indefinido&nbsp; <span class="command-descreption">- Indefinido</span>
+                                        </button>
+                                    </h2>
+                                    <div id="fslowmode" class="accordion-collapse collapse" data-bs-parent="#slowmode">
+                                        <div class="accordion-body">
+                                            <span>Indefinido</span> <br />
+                                            <span class="examples">
+                                                
+                                                    Indefinido
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                
             </div>
         </div>
-        <div class="video-frame">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/v7Y2DMjoyoY?si=3pJYU0Dd1_K4eEMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </section>
+    </div>
+
+    
+    <input id="commands" value="[{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-gift ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; Moderation Commands&#34;,&#34;commands&#34;:[&#34;nemo&#34;,&#34;fada&#34;,&#34;bella&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-globe-europe ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; General Commands&#34;,&#34;commands&#34;:[&#34;help&#34;,&#34;ping&#34;,&#34;invite&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-hammer-war ttt&#39;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp; Leveling Commands&#34;,&#34;commands&#34;:[&#34;leaderboard&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fas fa-crown ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; Premium Commands&#34;,&#34;commands&#34;:[&#34;reactionrole&#34;,&#34;slowmode&#34;]}]" hidden />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/fontawesome/all.min.js"></script>
+    <script src="/js/animation.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const body = document.body;
-
-            function createStar(x, y) {
-                const star = document.createElement("div");
-                star.classList.add("star");
-                star.style.left = `${x}px`;
-                star.style.top = `${y}px`;
-                star.style.animationDelay = `${Math.random() * 2}s`;
-                body.appendChild(star);
+        function active(elm){
+            document.getElementById("CategoryBtnAll").classList.remove("active");
+            
+                document.getElementById("CategoryBtn0").classList.remove("active");
+                document.getElementById("Category0").setAttribute("hidden", "");
+            
+                document.getElementById("CategoryBtn1").classList.remove("active");
+                document.getElementById("Category1").setAttribute("hidden", "");
+            
+                document.getElementById("CategoryBtn2").classList.remove("active");
+                document.getElementById("Category2").setAttribute("hidden", "");
+            
+                document.getElementById("CategoryBtn3").classList.remove("active");
+                document.getElementById("Category3").setAttribute("hidden", "");
+            
+            elm.classList.add("active");
+            if(elm.id.replace("CategoryBtn", "") == "All"){
+                
+                    document.getElementById("Category0").removeAttribute("hidden");
+                
+                    document.getElementById("Category1").removeAttribute("hidden");
+                
+                    document.getElementById("Category2").removeAttribute("hidden");
+                
+                    document.getElementById("Category3").removeAttribute("hidden");
+                
+            }else{
+                document.getElementById("Category" + elm.id.replace("CategoryBtn", "")).removeAttribute("hidden");
             }
-
-            body.addEventListener("click", (e) => {
-                createStar(e.pageX, e.pageY);
-            });
-
-            for (let i = 0; i < 100; i++) {
-                createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-            }
-        });
+        }
+        document.getElementById("CategoryBtnAll").click();
+        function search(arg){
+            let commands = JSON.parse(document.getElementById("commands").value);
+            let cmds = [];
+            commands.forEach(category => {
+                category.commands.forEach(command => {
+                    cmds.push(command);
+                })
+            })
+            let existedCmds = cmds.filter(obj => obj.includes(arg.toLowerCase()));
+            cmds.forEach(cmd => {
+                document.getElementById(cmd).setAttribute("hidden", "");
+            })
+            existedCmds.forEach(cmd => {
+                document.getElementById(cmd).removeAttribute("hidden");
+            })
+        }
     </script>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
+
 </html>
