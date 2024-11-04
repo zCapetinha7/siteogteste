@@ -3,192 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Original Gifs - Comunidade de Gifs</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Estilo Global */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #1c1c1c;
-            color: #ffffff;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Fundo roxo com estrelas piscantes */
-        .background {
-            background-color: #1c1c1c;
-            background-image: radial-gradient(circle at center, #3b1a57, #1c1c1c 80%);
-            height: 100vh;
-            width: 100vw;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -2;
-            overflow: hidden;
-        }
-
-        /* Estilo das estrelas */
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: twinkle 2s infinite alternate;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        /* Cabeçalho com navegação estilizada */
-        header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Estilo do logo */
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #a64ac9;
-        }
-
-        /* Menu de navegação estilizado */
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
-            color: #ffffff;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #a64ac9;
-            transform: scale(1.05);
-        }
-
-        /* Navegação para mobile */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-            nav a {
-                padding: 12px 20px;
-                font-size: 1.1em;
-            }
-        }
-
-        /* Seção principal (Hero) */
-.hero {
-    text-align: center;
-    padding-top: 100px;
-    position: relative;
-    z-index: 1;
-    color: #ffffff;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero img {
-    border: 5px solid #a64ac9;
-    border-radius: 50%;
-    width: 150px;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    color: #a64ac9;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.hero .description {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #cccccc;
-    padding: 0 20px;
-}
-
-.hero .highlight {
-    color: #a64ac9;
-    font-weight: bold;
-    font-size: 1.3em;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-    </style>
+    <title>Original Gifs</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<!-- Fundo e estrelas piscantes -->
-<div class="background"></div>
-
-<header>
-    <div class="logo">ORIGINAL GIFS</div>
-    <nav>
-        <a href="#home"><i class="fas fa-home"></i> Início</a>
-        <a href="https://discord.gg/originalgifs"><i class="fas fa-info-circle"></i> Servidor</a>
-        <a href="#membros"><i class="fas fa-users"></i> Equipe</a>
-        <a href="https://discord.com/channels/1006703572601294888/1133080431357591653"><i class="fas fa-envelope"></i> Suporte</a>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="logo">OG</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#loja">Loja</a></li>
+            <li><a href="#comandos">Comandos</a></li>
+            <li><a href="#webhook">Webhook</a></li>
+        </ul>
+        <div class="icons">
+            <a href="#"><img src="link_do_icone_discord" alt="Discord"></a>
+            <a href="#"><img src="link_do_icone_bandeira" alt="Bandeira"></a>
+            <a href="#"><img src="link_do_icone_outra_opcao" alt="Outro"></a>
+        </div>
     </nav>
-</header>
-<section class="hero">
-    <img src="https://cdn.discordapp.com/icons/1006703572601294888/a_a47f0027002c1c77b291154c65bbd312.gif?size=2048" alt="Imagem do servidor Original Gifs">
-    <h1>ORIGINAL GIFS™ 🍇</h1>
-    <p class="description">
-        <span class="highlight">Sobre Nós</span> <br>
-        Nosso objetivo é proporcionar a vocês uma experiência incrível, cheia de criatividade e diversão. Aqui vocês encontrarão uma ampla variedade de gifs, banners, ícones e muitas outras coisas para decorar seus perfis e servidores, dando aquele toque especial que vocês procuram.
-    </p>
-</section>
 
-<script>
-    // Função para criar uma estrela piscante em uma posição aleatória
-    function createStar(x, y) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.left = `${x}px`;
-        star.style.top = `${y}px`;
-        document.body.appendChild(star);
-    }
+    <!-- Seção Principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bot Completo para Seu Servidor!</h1>
+            <p class="description">
+                <span class="highlight">Original Gifs</span> é o seu lugar para encontrar gifs, banners e ícones exclusivos para personalizar seu perfil e servidor no Discord.
+            </p>
+            <div class="buttons">
+                <a href="#" class="button primary">Adquira já!</a>
+                <a href="#" class="button secondary">Tutoriais</a>
+            </div>
+        </div>
+        <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
 
-    // Função para adicionar várias estrelas no fundo
-    function addRandomStars() {
-        for (let i = 0; i < 100; i++) {
-            createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-        }
-    }
-
-    // Adiciona estrelas aleatórias ao carregar a página
-    addRandomStars();
-
-    // Adiciona uma estrela ao clicar, e ela permanece
-    document.addEventListener('click', (event) => {
-        createStar(event.clientX, event.clientY);
-    });
-</script>
-
+    <script src="stars.js"></script>
 </body>
 </html>
