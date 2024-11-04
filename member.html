@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original Gifs</title>
+    <link rel="shortcut icon" href="assets/monn.gif" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #2c003e;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: none;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            color: #a64ac9;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 150px 50px 50px;
+            min-height: 100vh;
+        }
+
+        .members-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            height: 300px; /* Altura dos perfis */
+            margin: 50px 0; /* Espaçamento superior e inferior */
+        }
+
+        .members-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: calc(100% * 3); /* Ajuste conforme o número de membros */
+        }
+
+        .member {
+            min-width: 300px; /* Largura mínima de cada perfil */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member img {
+            width: 100px; /* Tamanho da imagem do membro */
+            height: 100px; /* Tamanho da imagem do membro */
+            border-radius: 50%; /* Forma circular */
+            margin-bottom: 10px;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ORIGINAL</div>
+        <ul class="nav-links">
+            <li><a href="#inicio" class="active"><span class="material-icons">home</span>Início</a></li>
+            <li><a href="#membros"><span class="material-icons">group</span>Membros</a></li>
+            <li><a href="#comandos"><span class="material-icons">code</span>Comandos</a></li>
+            <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Melhor servidor de Gifs</h1>
+            <p class="description">
+                <span class="highlight">Original Gifs</span> é o seu lugar para encontrar gifs, banners e ícones exclusivos para personalizar seu perfil e servidor no Discord.
+            </p>
+        </div>
+    </section>
+
+    <!-- Seção de Membros -->
+    <div class="members-container">
+        <div class="members-wrapper" id="membersWrapper">
+            <div class="member">
+                <img src="assets/member1.jpg" alt="Membro 1">
+                <h2>Nome 1</h2>
+                <p>Cargo 1</p>
+                <p>Descrição do membro 1.</p>
+            </div>
+            <div class="member">
+                <img src="assets/member2.jpg" alt="Membro 2">
+                <h2>Nome 2</h2>
+                <p>Cargo 2</p>
+                <p>Descrição do membro 2.</p>
+            </div>
+            <div class="member">
+                <img src="assets/member3.jpg" alt="Membro 3">
+                <h2>Nome 3</h2>
+                <p>Cargo 3</p>
+                <p>Descrição do membro 3.</p>
+            </div>
+            <!-- Adicione mais membros conforme necessário -->
+        </div>
+    </div>
+
+    <script>
+        const membersWrapper = document.getElementById('membersWrapper');
+        let currentIndex = 0;
+        const totalMembers = 3; // Atualize para o número total de membros
+
+        function showNextMember() {
+            currentIndex = (currentIndex + 1) % totalMembers;
+            membersWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(showNextMember, 3000); // Trocar a cada 3 segundos
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const body = document.body;
+
+            function createStar(x, y) {
+                const star = document.createElement("div");
+                star.classList.add("star");
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                body.appendChild(star);
+            }
+
+            body.addEventListener("click", (e) => {
+                createStar(e.pageX, e.pageY);
+            });
+
+            for (let i = 0; i < 100; i++) {
+                createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+            }
+        });
+    </script>
+</body>
+</html>
