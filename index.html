@@ -24,13 +24,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 50px;
-            background-color: rgba(0, 0, 0, 0.6);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: none; /* Torna a barra invisível */
         }
 
         .logo {
@@ -42,7 +40,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 15px;
         }
 
         .nav-links li {
@@ -56,13 +54,15 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente apenas nos itens */
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .nav-links li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #a64ac9;
         }
 
         .nav-links li a.active {
@@ -73,10 +73,10 @@
             content: "";
             display: block;
             width: 100%;
-            height: 3px;
+            height: 2px;
             background-color: #a64ac9;
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             border-radius: 2px;
         }
@@ -84,8 +84,12 @@
         .icons a img {
             width: 24px;
             height: 24px;
-            margin-left: 15px;
             filter: invert(1);
+            transition: transform 0.3s;
+        }
+
+        .icons a:hover img {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -102,12 +106,46 @@
         <div class="icons">
             <a href="#"><img src="link_do_icone_discord" alt="Discord"></a>
         </div>
-    </nav>
+   </nav>
 
-    <!-- Conteúdo Principal -->
-    <section style="padding-top: 80px;">
-        <h1>Conteúdo da Página</h1>
-        <p>Seu conteúdo principal começa aqui...</p>
+    <!-- Seção Principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bot Completo para Seu Servidor!</h1>
+            <p class="description">
+                <span class="highlight">Original Gifs</span> é o seu lugar para encontrar gifs, banners e ícones exclusivos para personalizar seu perfil e servidor no Discord.
+            </p>
+            <div class="buttons">
+                <a href="#" class="button primary">Adquira já!</a>
+                <a href="#" class="button secondary">Tutoriais</a>
+            </div>
+        </div>
+        <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const body = document.body;
+
+            function createStar(x, y) {
+                const star = document.createElement("div");
+                star.classList.add("star");
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                body.appendChild(star);
+            }
+
+            body.addEventListener("click", (e) => {
+                createStar(e.pageX, e.pageY);
+            });
+
+            for (let i = 0; i < 100; i++) {
+                createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+            }
+        });
+    </script>
 </body>
 </html>
