@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Original Gifs</title>
+    <title>Original Gifs - Membros</title>
     <link rel="shortcut icon" href="assets/monn.gif" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -20,6 +20,7 @@
             overflow-x: hidden;
         }
 
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -29,7 +30,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: none;
+            background: none; /* Torna a barra invisível */
         }
 
         .logo {
@@ -44,6 +45,10 @@
             gap: 15px;
         }
 
+        .nav-links li {
+            position: relative;
+        }
+
         .nav-links li a {
             text-decoration: none;
             color: #ffffff;
@@ -53,45 +58,133 @@
             gap: 5px;
             padding: 10px 15px;
             border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente apenas nos itens */
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .hero {
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #a64ac9;
+        }
+
+        .nav-links li a.active {
+            color: #a64ac9;
+        }
+
+        .nav-links li a.active::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #a64ac9;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .icons a {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 150px 50px 50px;
-            min-height: 100vh;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+            width: 40px;
+            height: 40px;
         }
 
-        .members-container {
-            display: flex;
-            overflow: hidden;
-            position: relative;
-            height: 300px; /* Altura dos perfis */
-            margin: 50px 0; /* Espaçamento superior e inferior */
+        .icons a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .members-wrapper {
-            display: flex;
-            position: absolute; /* Permite o movimento fora da tela */
-            transition: transform 1s ease; /* Animação mais suave */
+        .icons img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1);
         }
 
-        .member {
-            min-width: 300px; /* Largura mínima de cada perfil */
-            padding: 20px;
+        /* Seção dos Membros */
+        .members-section {
+            padding: 100px 50px;
             text-align: center;
         }
 
-        .member img {
-            width: 100px; /* Tamanho da imagem do membro */
-            height: 100px; /* Tamanho da imagem do membro */
-            border-radius: 50%; /* Forma circular */
-            margin-bottom: 10px;
+        .members-section h2 {
+            font-size: 2.5em;
+            color: #a64ac9;
+            margin-bottom: 20px;
         }
 
+        .members-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .member {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Carrossel de Imagens */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 150px;
+            margin-top: 30px;
+        }
+
+        .carousel-images {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+
+        .carousel-images img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px;
+            }
+
+            .navbar .nav-links {
+                display: none;
+            }
+
+            .members-section {
+                padding: 80px 20px;
+            }
+
+            .carousel {
+                height: 100px;
+            }
+        }
+
+        /* CSS para as estrelas */
         .star {
             position: absolute;
             width: 3px;
@@ -108,83 +201,44 @@
     </style>
 </head>
 <body>
+    <!-- Navegação -->
     <nav class="navbar">
         <div class="logo">ORIGINAL</div>
         <ul class="nav-links">
-            <li><a href="#inicio" class="active"><span class="material-icons">home</span>Início</a></li>
-            <li><a href="#membros"><span class="material-icons">group</span>Membros</a></li>
+            <li><a href="index.html" class="active"><span class="material-icons">home</span>Início</a></li>
+            <li><a href="member.html"><span class="material-icons">group</span>Membros</a></li>
             <li><a href="#comandos"><span class="material-icons">code</span>Comandos</a></li>
             <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
         </ul>
+        <div class="icons">
+            <a href="https://discord.com"><img src="assets/monn.gif" alt="Discord"></a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Melhor servidor de Gifs</h1>
-            <p class="description">
-                <span class="highlight">Original Gifs</span> é o seu lugar para encontrar gifs, banners e ícones exclusivos para personalizar seu perfil e servidor no Discord.
-            </p>
+    <!-- Seção Principal -->
+    <section class="members-section">
+        <h2>Membros da Staff e Administração</h2>
+        <div class="members-list">
+            <div class="member"><img src="assets/member1.jpg" alt="Membro 1"></div>
+            <div class="member"><img src="assets/member2.jpg" alt="Membro 2"></div>
+            <div class="member"><img src="assets/member3.jpg" alt="Membro 3"></div>
+            <div class="member"><img src="assets/member4.jpg" alt="Membro 4"></div>
+            <div class="member"><img src="assets/member5.jpg" alt="Membro 5"></div>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="assets/image1.jpg" alt="Imagem 1">
+                <img src="assets/image2.jpg" alt="Imagem 2">
+                <img src="assets/image3.jpg" alt="Imagem 3">
+                <img src="assets/image4.jpg" alt="Imagem 4">
+                <img src="assets/image5.jpg" alt="Imagem 5">
+            </div>
         </div>
     </section>
 
-    <!-- Seção de Membros -->
-    <div class="members-container">
-        <div class="members-wrapper" id="membersWrapper">
-            <!-- Membros -->
-            <div class="member">
-                <img src="assets/member1.jpg" alt="Membro 1">
-                <h2>Nome 1</h2>
-                <p>Cargo 1</p>
-                <p>Descrição do membro 1.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member2.jpg" alt="Membro 2">
-                <h2>Nome 2</h2>
-                <p>Cargo 2</p>
-                <p>Descrição do membro 2.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member3.jpg" alt="Membro 3">
-                <h2>Nome 3</h2>
-                <p>Cargo 3</p>
-                <p>Descrição do membro 3.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member4.jpg" alt="Membro 4">
-                <h2>Nome 4</h2>
-                <p>Cargo 4</p>
-                <p>Descrição do membro 4.</p>
-            </div>
-            <div class="member">
-                <img src="assets/member5.jpg" alt="Membro 5">
-                <h2>Nome 5</h2>
-                <p>Cargo 5</p>
-                <p>Descrição do membro 5.</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        const membersWrapper = document.getElementById('membersWrapper');
-        const totalMembers = 5; // Total de membros
-        let currentIndex = 0;
-
-        function showNextMember() {
-            currentIndex++;
-            if (currentIndex >= totalMembers) { // Quando atingir o final, reinicia o índice
-                currentIndex = 0;
-            }
-
-            membersWrapper.style.transform = `translateX(-${(currentIndex * 100) / totalMembers}%)`;
-        }
-
-        function startAnimation() {
-            setInterval(showNextMember, 4000); // Troca a cada 4 segundos
-        }
-
         document.addEventListener("DOMContentLoaded", () => {
-            startAnimation();
-
             const body = document.body;
 
             function createStar(x, y) {
