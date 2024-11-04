@@ -12,12 +12,10 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Fundo com estrelas */
         body {
             background-color: #2c003e;
             color: #ffffff;
             overflow-x: hidden;
-            position: relative;
         }
 
         /* Navbar */
@@ -25,15 +23,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 50px;
+            background-color: rgba(0, 0, 0, 0.6);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .navbar .logo {
+        .logo {
             font-size: 1.8em;
             color: #a64ac9;
             font-weight: bold;
@@ -42,18 +42,43 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links li a {
             text-decoration: none;
             color: #ffffff;
             font-size: 1em;
-            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links li a.active {
             color: #a64ac9;
+        }
+
+        .nav-links li a.active::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #a64ac9;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
         }
 
         .icons a img {
@@ -62,122 +87,6 @@
             margin-left: 15px;
             filter: invert(1);
         }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 150px 50px 50px;
-            min-height: 100vh;
-        }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            color: #a64ac9;
-            margin-bottom: 20px;
-        }
-
-        .description {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #cccccc;
-            margin-bottom: 30px;
-        }
-
-        .highlight {
-            color: #a64ac9;
-            font-weight: bold;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .button {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .button.primary {
-            background-color: #a64ac9;
-            color: #ffffff;
-        }
-
-        .button.primary:hover {
-            background-color: #8b2b9e;
-        }
-
-        .button.secondary {
-            background-color: #444444;
-            color: #ffffff;
-        }
-
-        .button.secondary:hover {
-            background-color: #333333;
-        }
-
-        /* Video Frame */
-        .video-frame iframe {
-            width: 500px;
-            height: 300px;
-            border-radius: 10px;
-        }
-
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 20px;
-            }
-
-            .navbar .nav-links {
-                display: none;
-            }
-
-            .hero {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .hero-content {
-                max-width: 100%;
-                padding: 20px;
-            }
-
-            .video-frame iframe {
-                width: 100%;
-                height: 200px;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-        }
-
-        /* CSS para as estrelas */
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            animation: twinkle 2s infinite ease-in-out alternate;
-        }
-
-        @keyframes twinkle {
-            from { opacity: 0.5; }
-            to { opacity: 1; }
-        }
     </style>
 </head>
 <body>
@@ -185,56 +94,20 @@
     <nav class="navbar">
         <div class="logo">OG</div>
         <ul class="nav-links">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#loja">Loja</a></li>
-            <li><a href="#comandos">Comandos</a></li>
-            <li><a href="#webhook">Webhook</a></li>
+            <li><a href="#inicio" class="active"><img src="link_do_icone_casa" alt="Início">Início</a></li>
+            <li><a href="#loja"><img src="link_do_icone_loja" alt="Loja">Loja</a></li>
+            <li><a href="#comandos"><img src="link_do_icone_comandos" alt="Comandos">Comandos</a></li>
+            <li><a href="#webhook"><img src="link_do_icone_webhook" alt="Webhook">Webhook</a></li>
         </ul>
         <div class="icons">
             <a href="#"><img src="link_do_icone_discord" alt="Discord"></a>
-            <a href="#"><img src="link_do_icone_bandeira" alt="Bandeira"></a>
-            <a href="#"><img src="link_do_icone_outra_opcao" alt="Outro"></a>
         </div>
     </nav>
 
-    <!-- Seção Principal -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Bot Completo para Seu Servidor!</h1>
-            <p class="description">
-                <span class="highlight">Original Gifs</span> é o seu lugar para encontrar gifs, banners e ícones exclusivos para personalizar seu perfil e servidor no Discord.
-            </p>
-            <div class="buttons">
-                <a href="#" class="button primary">Adquira já!</a>
-                <a href="#" class="button secondary">Tutoriais</a>
-            </div>
-        </div>
-        <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-        </div>
+    <!-- Conteúdo Principal -->
+    <section style="padding-top: 80px;">
+        <h1>Conteúdo da Página</h1>
+        <p>Seu conteúdo principal começa aqui...</p>
     </section>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const body = document.body;
-
-            function createStar(x, y) {
-                const star = document.createElement("div");
-                star.classList.add("star");
-                star.style.left = `${x}px`;
-                star.style.top = `${y}px`;
-                star.style.animationDelay = `${Math.random() * 2}s`;
-                body.appendChild(star);
-            }
-
-            body.addEventListener("click", (e) => {
-                createStar(e.pageX, e.pageY);
-            });
-
-            for (let i = 0; i < 100; i++) {
-                createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-            }
-        });
-    </script>
 </body>
 </html>
