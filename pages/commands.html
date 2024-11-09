@@ -236,8 +236,8 @@
         <div class="logo">ORIGINAL</div>
         <ul class="nav-links">
             <li><a href="index.html"><span class="material-icons">home</span>Início</a></li>
-            <li><a href="member.html" class="active"><span class="material-icons">group</span>Membros</a></li>
-            <li><a href="#comandos"><span class="material-icons">code</span>Comandos</a></li>
+            <li><a href="member.html"><span class="material-icons">home</span>Membros</a></li>
+            <li><a href="pages/commands.html" class="active"><span class="material-icons">group</span>Comandos</a></li>
             <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
         </ul>
         <div class="icons">
@@ -495,6 +495,32 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="/fontawesome/all.min.js"></script>
     <script src="/js/animation.js"></script>
+    <script>
+        function active(elm){
+            document.getElementById("CategoryBtnAll").classList.remove("active");
+            
+                document.getElementById("CategoryBtn0").classList.remove("active");
+                document.getElementById("Category0").setAttribute("hidden", "");
+            
+                document.getElementById("CategoryBtn1").classList.remove("active");
+                document.getElementById("Category1").setAttribute("hidden", "");
+            
+                document.getElementById("CategoryBtn2").classList.remove("active");
+                document.getElementById("Category2").setAttribute("hidden", "");
+            
+                document.getElementById("CategoryBtn3").classList.remove("active");
+                document.getElementById("Category3").setAttribute("hidden", "");
+            
+            elm.classList.add("active");
+            if(elm.id.replace("CategoryBtn", "") == "All"){
+                
+                    document.getElementById("Category0").removeAttribute("hidden");
+                
+                    document.getElementById("Category1").removeAttribute("hidden");
+                
+                    document.getElementById("Category2").removeAttribute("hidden");
+                
+                    document.getElementById("Category3").removeAttribute("hidden");
     <script>
         function active(elm){
             document.getElementById("CategoryBtnAll").classList.remove("active");
