@@ -13,77 +13,236 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="shortcut icon" href="../img/" type="image/x-icon">
-    <title>Membros da Original</title>
-</head>
-
-<body>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORIGINAL GIFS</title>
-    <style>
-        body {
+</script>
+      <style>
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
+
+        body {
+            background-color: #2c003e;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
         .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: none; /* Torna a barra invisível */
+        }
+
+        .logo {
+            font-size: 1.8em;
+            color: #a64ac9;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente apenas nos itens */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #a64ac9;
+        }
+
+        .nav-links li a.active {
+            color: #a64ac9;
+        }
+
+        .nav-links li a.active::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #a64ac9;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+            width: 40px;
+            height: 40px;
+        }
+
+        .icons a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .icons img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1);
+        }
+
+        /* Hero Section */
+        .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #212529;
-            padding: 10px 20px;
+            padding: 150px 50px 50px;
+            min-height: 100vh;
         }
-        .navbar .left, .navbar .right {
-            display: flex;
-            align-items: center;
+
+        .hero-content {
+            max-width: 600px;
         }
-        .navbar .right a {
-            margin-left: 20px;
-            color: #9d14ff; /* Cor roxa */
-            text-decoration: none;
-            font-size: 17px;
+
+        .hero h1 {
+            font-size: 3em;
+            color: #a64ac9;
+            margin-bottom: 20px;
         }
-        .navbar .right a:hover {
-            background-color: #575757;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
+
+        .description {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 30px;
         }
-        .navbar .button-home {
-            background-color: #9d14ff; /* Cor roxa */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 17px;
-            border-radius: 5px;
-        }
-        .navbar .button-home:hover {
-            background-color: #575757;
-        }
-        .navbar .center-text {
-            color: #9d14ff; /* Cor roxa */
-            font-size: 20px;
+
+        .highlight {
+            color: #a64ac9;
             font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .button {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button.primary {
+            background-color: #a64ac9;
+            color: #ffffff;
+        }
+
+        .button.primary:hover {
+            background-color: #8b2b9e;
+        }
+
+        .button.secondary {
+            background-color: #444444;
+            color: #ffffff;
+        }
+
+        .button.secondary:hover {
+            background-color: #333333;
+        }
+
+        /* Video Frame */
+        .video-frame iframe {
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px;
+            }
+
+            .navbar .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .video-frame iframe {
+                width: 100%;
+                height: 200px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* CSS para as estrelas */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-
-<div class="navbar">
-    <div class="left">
-        <button class="button-home" onclick="window.location.href='../index.html'">Home</button>
-    </div>
-    <div class="center-text">ORIGINAL GIFS</div>
-    <div class="right">
-        <a href="https://discord.com/channels/1006703572601294888/1059233145406357594">Anúncios</a>
-        <a href="https://discord.com/channels/1006703572601294888/1133080431357591653">Suporte</a>
-        <a href="https://discord.com/channels/1006703572601294888/1059233147889385633">Diretrizes</a>
-    </div>
-</div>
-
-</body>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="logo">ORIGINAL</div>
+        <ul class="nav-links">
+            <li><a href="index.html"><span class="material-icons">home</span>Início</a></li>
+            <li><a href="member.html" class="active"><span class="material-icons">group</span>Membros</a></li>
+            <li><a href="#comandos"><span class="material-icons">code</span>Comandos</a></li>
+            <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
+        </ul>
+        <div class="icons">
+        </div>
+    </nav>
 
     <div class="container">
         <section style="margin-top: 9%;">
