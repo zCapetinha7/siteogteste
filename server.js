@@ -64,9 +64,13 @@ app.get('/auth/discord/callback',
     }
   });
 
-// Página inicial (login)
+// Página inicial (Redirecionamento automático para login)
 app.get('/', (req, res) => {
-  res.send('<a href="/auth/discord">Login com Discord</a>');  // Link para login
+  if (req.isAuthenticated()) {
+    res.redirect('/dashboard'); // Se já estiver autenticado, redireciona para a página protegida
+  } else {
+    res.redirect('/auth/discord'); // Redireciona para login automático
+  }
 });
 
 // Página de dashboard (apenas para quem estiver no servidor)
