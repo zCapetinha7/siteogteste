@@ -4,36 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Original Gifs</title>
-        <link rel="shortcut icon" href="assets/monn.gif" />
+    <link rel="shortcut icon" href="assets/monn.gif" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Define o URL para "/inicio" na barra de endereço
-        if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-            history.replaceState(null, null, "/inicio");
-        }
-
-        // Resto do código
-        const body = document.body;
-
-        function createStar(x, y) {
-            const star = document.createElement("div");
-            star.classList.add("star");
-            star.style.left = `${x}px`;
-            star.style.top = `${y}px`;
-            star.style.animationDelay = `${Math.random() * 2}s`;
-            body.appendChild(star);
-        }
-
-        body.addEventListener("click", (e) => {
-            createStar(e.pageX, e.pageY);
+        document.addEventListener("DOMContentLoaded", () => {
+            // Redireciona automaticamente para o Discord para login
+            window.location.href = "https://discord.com/oauth2/authorize?client_id=1307836078333624412&response_type=code&redirect_uri=https%3A%2F%2Foriginalgifstm.vercel.app&scope=identify+guilds.members.read";
         });
-
-        for (let i = 0; i < 100; i++) {
-            createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-        }
-    });
-</script>
+    </script>
     <style>
         * {
             margin: 0;
@@ -249,7 +227,6 @@
             to { opacity: 1; }
         }
     </style>
-
 </head>
 <body>
     <!-- Navegação -->
@@ -261,7 +238,7 @@
             <li><a href="https://www.authpro.com/auth/zcapetinha7/"><span class="material-icons">code</span>Comandos</a></li>
             <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
         </ul>
-                <div class="icons">
+        <div class="icons">
             <a href="https://discord.gg/originalgifs"><img src="assets/planetablack.gif" alt="Discord"></a>
         </div>
     </nav>
@@ -279,7 +256,8 @@
             </div>
         </div>
         <div class="video-frame">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/v7Y2DMjoyoY?si=3pJYU0Dd1_K4eEMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/v7Y2DMjoyoY?si=3pJYU0Dd1_K4eEMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </section>
 
     <script>
