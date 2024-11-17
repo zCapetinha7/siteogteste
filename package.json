@@ -1,0 +1,2 @@
+npm init -y  # Cria o arquivo package.json
+npm install express passport passport-discord express-session  # Instala as dependências
