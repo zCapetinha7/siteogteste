@@ -304,5 +304,24 @@
             }
         });
     </script>
+
+<button onclick="logout()">Sair</button>
+
+
+    <script>
+        // Verifica se o usuário está autenticado
+        if (!localStorage.getItem("auth")) {
+            // Se não estiver autenticado, redireciona para o login
+            window.location.href = "login.html";
+        }
+    </script>
+<script>
+    function logout() {
+        // Remove a autenticação
+        localStorage.removeItem("auth");
+        // Redireciona para a página de login
+        window.location.href = "login.html";
+    }
+</script>
 </body>
 </html>
