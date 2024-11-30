@@ -253,7 +253,7 @@
 </head>
 <body>
     <!-- Navegação -->
- <nav class="navbar">
+<nav class="navbar">
     <div class="logo">ORIGINAL</div>
     <ul class="nav-links">
         <li><a href="#inicio" class="active"><span class="material-icons">home</span>Início</a></li>
@@ -285,6 +285,21 @@
         transform: scale(1.05);
     }
 </style>
+
+<script>
+    function logout() {
+        // Remove a autenticação do armazenamento local
+        localStorage.removeItem("auth");
+        // Redireciona para a página de login
+        window.location.href = "login.html";
+    }
+
+    // Verifica se o usuário está autenticado
+    if (!localStorage.getItem("auth")) {
+        // Redireciona para a página de login se não autenticado
+        window.location.href = "login.html";
+    }
+</script>
 
     <!-- Seção Principal -->
     <section class="hero">
