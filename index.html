@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Real Nemo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #0d0221, #4a148c);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: rgba(37, 0, 69, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            width: 350px;
+        }
+
+        .login-container h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #e0bbff;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #4a148c;
+            color: white;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #6a1b9a, #9c27b0);
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .login-container button:hover {
+            background: linear-gradient(45deg, #9c27b0, #ab47bc);
+            transform: scale(1.05);
+        }
+
+        .error {
+            color: #ff6f61;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Bem-vindo ao Real Nemo</h1>
+        <p>Digite o código de acesso:</p>
+        <input type="password" id="password" placeholder="Seu código mágico">
+        <button onclick="validateLogin()">Entrar</button>
+        <p class="error" id="error-message"></p>
+    </div>
+
+    <script>
+        // Senhas válidas
+        const validPasswords = ["12345", "realnemo2024", "acesso🔮"];
+
+        function validateLogin() {
+            const passwordInput = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (validPasswords.includes(passwordInput)) {
+                // Salvar o login no localStorage
+                localStorage.setItem("auth", "true");
+                // Redirecionar para a página inicial do site
+                window.location.href = "home.html";
+            } else {
+                // Mostrar mensagem de erro
+                errorMessage.textContent = "Código inválido. Tente novamente.";
+            }
+        }
+    </script>
+</body>
+</html>
