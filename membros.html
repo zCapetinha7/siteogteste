@@ -17,34 +17,33 @@
     <title>Original Gifs</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Define o URL para "/membros" na barra de endereço
-        if (window.location.pathname === "/" || window.location.pathname === "/membros.html") {
-            history.replaceState(null, null, "/membros");
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            // Define o URL para "/membros" na barra de endereço
+            if (window.location.pathname === "/" || window.location.pathname === "/membros.html") {
+                history.replaceState(null, null, "/membros");
+            }
 
-        // Resto do código
-        const body = document.body;
+            const body = document.body;
 
-        function createStar(x, y) {
-            const star = document.createElement("div");
-            star.classList.add("star");
-            star.style.left = `${x}px`;
-            star.style.top = `${y}px`;
-            star.style.animationDelay = `${Math.random() * 2}s`;
-            body.appendChild(star);
-        }
+            function createStar(x, y) {
+                const star = document.createElement("div");
+                star.classList.add("star");
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                body.appendChild(star);
+            }
 
-        body.addEventListener("click", (e) => {
-            createStar(e.pageX, e.pageY);
+            body.addEventListener("click", (e) => {
+                createStar(e.pageX, e.pageY);
+            });
+
+            for (let i = 0; i < 100; i++) {
+                createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+            }
         });
-
-        for (let i = 0; i < 100; i++) {
-            createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-        }
-    });
-</script>
-      <style>
+    </script>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -68,7 +67,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: none; /* Torna a barra invisível */
+            background: none;
         }
 
         .logo {
@@ -96,7 +95,7 @@
             gap: 5px;
             padding: 10px 15px;
             border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente apenas nos itens */
+            background-color: rgba(255, 255, 255, 0.1);
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -121,26 +120,37 @@
             border-radius: 2px;
         }
 
-        .icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
+        /* Logout Button */
+        .logout-button {
+            background: linear-gradient(45deg, #a64ac9, #8b2b9e);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .logout-button:hover {
+            background: linear-gradient(45deg, #8b2b9e, #6a1b9a);
+            transform: scale(1.05);
+        }
+
+        /* Star Twinkling */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #ffffff;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: background-color 0.3s;
-            width: 40px;
-            height: 40px;
+            animation: twinkle 2s infinite ease-in-out alternate;
         }
 
-        .icons a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .icons img {
-            width: 30px;
-            height: 30px;
-            filter: invert(1);
+        @keyframes twinkle {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
         }
 
         /* Hero Section */
@@ -174,45 +184,6 @@
             font-weight: bold;
         }
 
-        .buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .button {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .button.primary {
-            background-color: #a64ac9;
-            color: #ffffff;
-        }
-
-        .button.primary:hover {
-            background-color: #8b2b9e;
-        }
-
-        .button.secondary {
-            background-color: #444444;
-            color: #ffffff;
-        }
-
-        .button.secondary:hover {
-            background-color: #333333;
-        }
-
-        /* Video Frame */
-        .video-frame iframe {
-            width: 500px;
-            height: 300px;
-            border-radius: 10px;
-        }
-
         /* Responsivo */
         @media (max-width: 768px) {
             .navbar {
@@ -233,377 +204,56 @@
                 max-width: 100%;
                 padding: 20px;
             }
-
-            .video-frame iframe {
-                width: 100%;
-                height: 200px;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-        }
-
-        /* CSS para as estrelas */
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            animation: twinkle 2s infinite ease-in-out alternate;
-        }
-
-        @keyframes twinkle {
-            from { opacity: 0.5; }
-            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <!-- Navegação -->
     <nav class="navbar">
         <div class="logo">ORIGINAL</div>
         <ul class="nav-links">
             <li><a href="index.html"><span class="material-icons">home</span>Início</a></li>
-            <li><a href="member.html" class="active"><span class="material-icons">group</span>Membros</a></li>
+            <li><a href="membros.html" class="active"><span class="material-icons">group</span>Membros</a></li>
             <li><a href="comandos.html"><span class="material-icons">code</span>Comandos</a></li>
             <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
         </ul>
-        <div class="icons">
-        </div>
-            <div class="icons">
-        <button class="logout-button" onclick="logout()">Sair</button>
-    </div>
-</nav>
+    </nav>
 
-<style>
-    .logout-button {
-        background: linear-gradient(45deg, #a64ac9, #8b2b9e);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1em;
-        font-weight: bold;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.3s;
-        text-align: center;
-    }
-
-    .logout-button:hover {
-        background: linear-gradient(45deg, #8b2b9e, #6a1b9a);
-        transform: scale(1.05);
-    }
-</style>
-
-    <div class="container">
-        <section style="margin-top: 9%;">
-            <div class="row">
-                <div class="col-sm-6 my-1">
-                    <h2 class="fw-bold">Equipe Staff 💜</h2>
-                    <p class="command-descreption">Equipe de staff da Original Gifs.</p>
-                </div>
+    <section style="margin-top: 9%;">
+        <div class="container">
+            <h2 class="fw-bold text-center">Equipe Staff 💜</h2>
+            <p class="command-descreption text-center">Equipe de staff da Original Gifs.</p>
             <hr>
-        </section>
-        <div class="mt-4"></div>
-        <div class="row">
-            <div class="col-md-4 my-2">
-                <div class="card p-3">
-                    <h5>Categorias de membros:</h5>
-                    <hr />
-                    <button onclick="active(this)" id="CategoryBtnAll" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class="fad fa-icons ttt"></i>&nbsp; Todos os membros </button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn0" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-gift ttt'></i>&nbsp; Fundadores</button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn1" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-globe-europe ttt'></i>&nbsp; Administradores</button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn2" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-hammer-war ttt'></i>&nbsp;&nbsp; Moderadores</button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn3" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fas fa-crown ttt'></i>&nbsp;&nbsp; Makers</button>
-                    
+
+            <!-- Fundadores Section -->
+            <div class="founders">
+                <h3 class="text-center" style="color: #a64ac9;">Fundadores</h3>
+                <div class="founders-list text-center">
+                    <p>Fundador 1 - Nome</p>
+                    <p>Fundador 2 - Nome</p>
+                    <p>Fundador 3 - Nome</p>
+                    <!-- Adicione mais fundadores conforme necessário -->
                 </div>
             </div>
-            <div class="col-md-8 my-2">
-                <input type="text" class="w-100 search-box" oninput="search(this.value)" placeholder="Pesquise um membro" />
-                
-                    
-                        <div class="mt-4"></div>
-                    
-                    <div class="commands-section" id="Category0">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="perfeitodemais">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fperfeitodemais">
-                                             Real Nemo 🔮 / perfeitodemais&nbsp; <span class="command-descreption">- 1037185561422737468</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fperfeitodemais" class="accordion-collapse collapse" data-bs-parent="#perfeitodemais">
-                                        <div class="accordion-body">
-                                            <span>Fundador e Posse</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Fundador des de: 9 de agosto de 2022 as 20:20
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="fadawinx">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ffadawinx">
-                                            Fada Winx 🔮 / fadawinx&nbsp; <span class="command-descreption">- 514255717377638403</span>
-                                        </button>
-                                    </h2>
-                                    <div id="ffadawinx" class="accordion-collapse collapse" data-bs-parent="#fadawinx">
-                                        <div class="accordion-body">
-                                            <span>Fundadora e Sub-Posse</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Fundadora des de: 20 de setembro de 2023 as 15:27
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="antivocekkj">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fantivocekkj">
-                                          Sem Informações / Sem Informações&nbsp; <span class="command-descreption">- Sem Informações</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fantivocekkj" class="accordion-collapse collapse" data-bs-parent="#antivocekkj">
-                                        <div class="accordion-body">
-                                            <span>Sem Informações</span> <br />
-                                            <span class="examples">
-                                                
-                                                  Sem Informações
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                    </div>
-                
-                    
-                    <div class="commands-section" id="Category1">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="help">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fhelp">
-                                             Indefinido / Vaga&nbsp; <span class="command-descreption"> - Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fhelp" class="accordion-collapse collapse" data-bs-parent="#help">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="ping">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fping">
-                                            Indefinido / Vaga&nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fping" class="accordion-collapse collapse" data-bs-parent="#ping">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="invite">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#finvite">
-                                            Indefinido / Vaga&nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="finvite" class="accordion-collapse collapse" data-bs-parent="#invite">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                
-                    
-                    <div class="commands-section" id="Category2">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="leaderboard">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fleaderboard">
-                                            Indefinido / Vaga&nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fleaderboard" class="accordion-collapse collapse" data-bs-parent="#leaderboard">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                
-                    
-                    <div class="commands-section" id="Category3">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="jullyntj">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fjullyntj">
-                                            <span class='badge badge-vip rounded-pill'><i class='far fa-crown'></i></span>&nbsp; Indefinido / Indefinido &nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fjullyntj" class="accordion-collapse collapse" data-bs-parent="#jullyntj">
-                                        <div class="accordion-body">
-                                            <span>Indefinido </span> <br />
-                                            <span class="examples">
-                                                
-                                                   Indefinido 
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="172cw">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#172cw">
-                                            <span class='badge badge-vip rounded-pill'><i class='far fa-crown'></i></span>&nbsp; Indefinido  / Indefinido &nbsp; <span class="command-descreption">- Indefinido </span>
-                                        </button>
-                                    </h2>
-                                    <div id="f172cw" class="accordion-collapse collapse" data-bs-parent="#172cw">
-                                        <div class="accordion-body">
-                                            <span>Indefinido </span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido 
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                
+
+            <!-- Membros Section -->
+            <div class="members">
+                <h3 class="text-center" style="color: #a64ac9;">Membros</h3>
+                <div class="members-list text-center">
+                    <p>Membro 1 - Nome</p>
+                    <p>Membro 2 - Nome</p>
+                    <p>Membro 3 - Nome</p>
+                    <!-- Adicione mais membros conforme necessário -->
+                </div>
             </div>
         </div>
-    </div>
-    
-    <input id="commands" value="[{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-gift ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; Moderation Commands&#34;,&#34;commands&#34;:[&#34;perfeitodemais&#34;,&#34;fadawinx&#34;,&#34;antivocekkj&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-globe-europe ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; General Commands&#34;,&#34;commands&#34;:[&#34;help&#34;,&#34;ping&#34;,&#34;invite&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-hammer-war ttt&#39;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp; Leveling Commands&#34;,&#34;commands&#34;:[&#34;leaderboard&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fas fa-crown ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; Premium Commands&#34;,&#34;commands&#34;:[&#34;jullyntj&#34;,&#34;172cw&#34;]}]" hidden />
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/fontawesome/all.min.js"></script>
-    <script src="/js/animation.js"></script>
-    <script>
-        function active(elm){
-            document.getElementById("CategoryBtnAll").classList.remove("active");
-            
-                document.getElementById("CategoryBtn0").classList.remove("active");
-                document.getElementById("Category0").setAttribute("hidden", "");
-            
-                document.getElementById("CategoryBtn1").classList.remove("active");
-                document.getElementById("Category1").setAttribute("hidden", "");
-            
-                document.getElementById("CategoryBtn2").classList.remove("active");
-                document.getElementById("Category2").setAttribute("hidden", "");
-            
-                document.getElementById("CategoryBtn3").classList.remove("active");
-                document.getElementById("Category3").setAttribute("hidden", "");
-            
-            elm.classList.add("active");
-            if(elm.id.replace("CategoryBtn", "") == "All"){
-                
-                    document.getElementById("Category0").removeAttribute("hidden");
-                
-                    document.getElementById("Category1").removeAttribute("hidden");
-                
-                    document.getElementById("Category2").removeAttribute("hidden");
-                
-                    document.getElementById("Category3").removeAttribute("hidden");
-                
-            }else{
-                document.getElementById("Category" + elm.id.replace("CategoryBtn", "")).removeAttribute("hidden");
-            }
-        }
-        document.getElementById("CategoryBtnAll").click();
-        function search(arg){
-            let commands = JSON.parse(document.getElementById("commands").value);
-            let cmds = [];
-            commands.forEach(category => {
-                category.commands.forEach(command => {
-                    cmds.push(command);
-                })
-            })
-            let existedCmds = cmds.filter(obj => obj.includes(arg.toLowerCase()));
-            cmds.forEach(cmd => {
-                document.getElementById(cmd).setAttribute("hidden", "");
-            })
-            existedCmds.forEach(cmd => {
-                document.getElementById(cmd).removeAttribute("hidden");
-            })
-        }
-    </script>
+    </section>
 
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
-     <script>
+    <script>
         // Verifica se o usuário está autenticado
         if (!localStorage.getItem("auth")) {
             // Se não estiver autenticado, redireciona para o login
             window.location.href = "index.html";
         }
-    </script>  
+    </script>
+</body>
 </html>
