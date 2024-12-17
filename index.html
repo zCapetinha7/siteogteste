@@ -3,145 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Original Gifs - Login</title>
-    <link rel="shortcut icon" href="assets/monn.gif" />
+    <title>Equipe Original Gifs</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(180deg, #0d0221, #4a148c);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            background: rgba(37, 0, 69, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            overflow: hidden;
-        }
-
-        .image-section {
-            flex: 1;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/sdw.png') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .image-section h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .image-section p {
-            font-size: 18px;
+            background-color: #1e002e;
+            color: #fff;
             line-height: 1.6;
-        }
-
-        .login-container {
-            flex: 1;
-            padding: 40px;
             display: flex;
             flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #b86bff;
+            margin-top: 30px;
+            font-size: 2rem;
+        }
+
+        .staff {
+            display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .staff-member {
+            position: relative;
+            background: #300246;
+            border-radius: 10px;
+            width: 250px;
             text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
         }
 
-        .login-container h1 {
-            font-size: 30px;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .login-container input {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            background-color: #4a148c;
-            color: white;
-        }
-
-        .login-container button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(45deg, #6a1b9a, #9c27b0);
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .login-container button:hover {
-            background: linear-gradient(45deg, #9c27b0, #ab47bc);
+        .staff-member:hover {
             transform: scale(1.05);
         }
 
-        .error {
-            color: #ffffff;
-            margin-top: 10px;
-            font-size: 14px;
+        .banner {
+            background: linear-gradient(135deg, #b86bff, #9b59b6);
+            height: 80px;
+            position: relative;
+        }
+
+        .staff-member img {
+            position: relative;
+            top: -40px;
+            width: 130px;
+            height: 130px;
+            border: 5px solid #1e002e;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .staff-info {
+            padding: 15px;
+            margin-top: -30px;
+        }
+
+        .staff-info h3 {
+            margin: 10px 0 5px;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .staff-info span {
+            display: block;
+            font-size: 1rem;
+            color: #b86bff;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .staff-info p {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #ddd;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Seção de imagem e descrição -->
-        <div class="image-section">
-            <h2>Bem-vindo a Original Gifs 🔮</h2>
-            <p>Servidor focado em disponibilizar gifs e icons e decorações para seu perfil.💜</p>
+    <!-- Título da Página -->
+    <h1>Equipe Staff</h1>
+
+    <!-- Equipe Staff -->
+    <div class="staff">
+        <!-- Membro 1 -->
+        <div class="staff-member">
+            <div class="banner"></div>
+            <img src="https://via.placeholder.com/130" alt="Posse">
+            <div class="staff-info">
+                <h3>Krokodil</h3>
+                <span>Posse</span>
+                <p>Data de Entrada: 01/01/2023</p>
+            </div>
         </div>
 
-        <!-- Seção de login -->
-        <div class="login-container">
-            <h1>Faça login</h1>
-            <p>Digite suas credenciais de acesso:</p>
-            <input type="text" id="username" placeholder="Usuário">
-            <input type="password" id="password" placeholder="Senha">
-            <button onclick="validateLogin()">Entrar</button>
-            <p class="error" id="error-message"></p>
+        <!-- Membro 2 -->
+        <div class="staff-member">
+            <div class="banner"></div>
+            <img src="https://via.placeholder.com/130" alt="Administrador">
+            <div class="staff-info">
+                <h3>Karol</h3>
+                <span>Administrador(a)</span>
+                <p>Data de Entrada: 15/02/2023</p>
+            </div>
         </div>
     </div>
-
-    <script>
-        // Lista de usuários e senhas válidos
-        const validUsers = {
-            "fadafundadora": "senha123",
-            "nemofundador": "nemosenha",
-            "fazol": "123456"
-        };
-
-        function validateLogin() {
-            const usernameInput = document.getElementById("username").value;
-            const passwordInput = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
-
-            // Valida as credenciais
-            if (validUsers[usernameInput] && validUsers[usernameInput] === passwordInput) {
-                // Salvar o login no localStorage
-                localStorage.setItem("auth", "true");
-                // Redirecionar para a página inicial do site
-                window.location.href = "inicio.html";
-            } else {
-                // Mostrar mensagem de erro
-                errorMessage.textContent = "Usuário ou senha inválidos. Tente novamente.";
-            }
-        }
-    </script>
 </body>
 </html>
