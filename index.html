@@ -3,37 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Original Gifs</title>
-        <link rel="shortcut icon" href="assets/monn.gif" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Define o URL para "/login" na barra de endereço
-        if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-            history.replaceState(null, null, "/login");
-        }
-
-        // Resto do código
-        const body = document.body;
-
-        function createStar(x, y) {
-            const star = document.createElement("div");
-            star.classList.add("star");
-            star.style.left = `${x}px`;
-            star.style.top = `${y}px`;
-            star.style.animationDelay = `${Math.random() * 2}s`;
-            body.appendChild(star);
-        }
-
-        body.addEventListener("click", (e) => {
-            createStar(e.pageX, e.pageY);
-        });
-
-        for (let i = 0; i < 100; i++) {
-            createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-        }
-    });
-</script>
+    <title>Original Gifs - Login</title>
+    <link rel="shortcut icon" href="assets/monn.gif" />
     <style>
         body {
             margin: 0;
@@ -65,7 +36,6 @@
             flex-direction: column;
             justify-content: center;
             padding: 40px;
-            color: white; /* Deixa o texto branco */
             text-align: center;
         }
 
@@ -91,7 +61,7 @@
         .login-container h1 {
             font-size: 30px;
             margin-bottom: 20px;
-            color: white; /* Texto branco */
+            color: white;
         }
 
         .login-container input {
@@ -123,7 +93,7 @@
         }
 
         .error {
-            color: #ffffff; /* Mensagens de erro em branco */
+            color: #ffffff;
             margin-top: 10px;
             font-size: 14px;
         }
@@ -140,29 +110,36 @@
         <!-- Seção de login -->
         <div class="login-container">
             <h1>Faça login</h1>
-            <p>Digite o seu código de acesso:</p>
-            <input type="password" id="password" placeholder="Seu código disponibilizado pelos posses">
+            <p>Digite suas credenciais de acesso:</p>
+            <input type="text" id="username" placeholder="Usuário">
+            <input type="password" id="password" placeholder="Senha">
             <button onclick="validateLogin()">Entrar</button>
             <p class="error" id="error-message"></p>
         </div>
     </div>
 
     <script>
-        // Senhas válidas
-        const validPasswords = ["fadafundadora", "nemofundador", "fazol"];
+        // Lista de usuários e senhas válidos
+        const validUsers = {
+            "fadafundadora": "senha123",
+            "nemofundador": "nemosenha",
+            "fazol": "123456"
+        };
 
         function validateLogin() {
+            const usernameInput = document.getElementById("username").value;
             const passwordInput = document.getElementById("password").value;
             const errorMessage = document.getElementById("error-message");
 
-            if (validPasswords.includes(passwordInput)) {
+            // Valida as credenciais
+            if (validUsers[usernameInput] && validUsers[usernameInput] === passwordInput) {
                 // Salvar o login no localStorage
                 localStorage.setItem("auth", "true");
                 // Redirecionar para a página inicial do site
                 window.location.href = "inicio.html";
             } else {
                 // Mostrar mensagem de erro
-                errorMessage.textContent = "Código inválido. Tente novamente.";
+                errorMessage.textContent = "Usuário ou senha inválidos. Tente novamente.";
             }
         }
     </script>
