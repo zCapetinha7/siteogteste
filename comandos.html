@@ -120,6 +120,21 @@
             left: 0;
             border-radius: 2px;
         }
+/* Navbar com efeitos de visibilidade */
+
+.navbar.hidden {
+    top: -60px; /* Ajuste conforme necessário */
+    transition: top 0.3s;
+}
+
+.navbar.visible {
+    top: 0;
+    transition: top 0.3s;
+}
+
+.navbar.scrolled {
+    background: #300246; /* Cor da navbar quando rolar para baixo */
+}
 
         .icons a {
             display: flex;
