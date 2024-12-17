@@ -44,221 +44,262 @@
         }
     });
 </script>
-      <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-        body {
-            background-color: #2c003e;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
+    body {
+        background-color: #2c003e;
+        color: #ffffff;
+        overflow-x: hidden;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: none; /* Torna a barra invisível */
-        }
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: none;
+    }
 
-        .logo {
-            font-size: 1.8em;
-            color: #a64ac9;
-            font-weight: bold;
-        }
+    .logo {
+        font-size: 1.8em;
+        color: #a64ac9;
+        font-weight: bold;
+    }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+    }
 
-        .nav-links li {
-            position: relative;
-        }
+    .nav-links li {
+        position: relative;
+    }
 
-        .nav-links li a {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 10px 15px;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente apenas nos itens */
-            transition: background-color 0.3s, color 0.3s;
-        }
+    .nav-links li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+    }
 
-        .nav-links li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #a64ac9;
-        }
+    .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #a64ac9;
+    }
 
-        .nav-links li a.active {
-            color: #a64ac9;
-        }
+    .nav-links li a.active {
+        color: #a64ac9;
+    }
 
-        .nav-links li a.active::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: #a64ac9;
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            border-radius: 2px;
-        }
+    .nav-links li a.active::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #a64ac9;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        border-radius: 2px;
+    }
 
-        .icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: background-color 0.3s;
-            width: 40px;
-            height: 40px;
-        }
+    /* Hero Section */
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 150px 50px 50px;
+        min-height: 100vh;
+    }
 
-        .icons a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+    .hero-content {
+        max-width: 600px;
+    }
 
-        .icons img {
-            width: 30px;
-            height: 30px;
-            filter: invert(1);
-        }
+    .hero h1 {
+        font-size: 3em;
+        color: #a64ac9;
+        margin-bottom: 20px;
+    }
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 150px 50px 50px;
-            min-height: 100vh;
-        }
+    .description {
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #cccccc;
+        margin-bottom: 30px;
+    }
 
-        .hero-content {
-            max-width: 600px;
-        }
+    .highlight {
+        color: #a64ac9;
+        font-weight: bold;
+    }
 
-        .hero h1 {
-            font-size: 3em;
-            color: #a64ac9;
-            margin-bottom: 20px;
-        }
+    .buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
 
-        .description {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #cccccc;
-            margin-bottom: 30px;
-        }
+    .button {
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
 
-        .highlight {
-            color: #a64ac9;
-            font-weight: bold;
-        }
+    .button.primary {
+        background-color: #a64ac9;
+        color: #ffffff;
+    }
 
-        .buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
+    .button.primary:hover {
+        background-color: #8b2b9e;
+    }
 
-        .button {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
+    .button.secondary {
+        background-color: #444444;
+        color: #ffffff;
+    }
 
-        .button.primary {
-            background-color: #a64ac9;
-            color: #ffffff;
-        }
+    .button.secondary:hover {
+        background-color: #333333;
+    }
 
-        .button.primary:hover {
-            background-color: #8b2b9e;
-        }
+    /* CSS para as estrelas */
+    .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        animation: twinkle 2s infinite ease-in-out alternate;
+    }
 
-        .button.secondary {
-            background-color: #444444;
-            color: #ffffff;
-        }
+    @keyframes twinkle {
+        from { opacity: 0.5; }
+        to { opacity: 1; }
+    }
 
-        .button.secondary:hover {
-            background-color: #333333;
-        }
+    /* Explicação "O que é ser Gestor?" */
+    .explanation {
+        max-width: 800px;
+        background-color: #2c003e;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
 
-        /* Video Frame */
-        .video-frame iframe {
-            width: 500px;
-            height: 300px;
-            border-radius: 10px;
-        }
+    .explanation h2 {
+        color: #b86bff;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 20px;
-            }
+    .explanation p {
+        font-size: 1rem;
+        color: #ddd;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
 
-            .navbar .nav-links {
-                display: none;
-            }
+    /* Staff Section */
+    .staff-title {
+        color: #b86bff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 40px;
+        text-align: center;
+    }
 
-            .hero {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+    .staff {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 20px;
+    }
 
-            .hero-content {
-                max-width: 100%;
-                padding: 20px;
-            }
+    .staff-member {
+        position: relative;
+        background: #300246;
+        border-radius: 10px;
+        width: 250px;
+        text-align: center;
+        overflow: hidden;
+        transition: transform 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    }
 
-            .video-frame iframe {
-                width: 100%;
-                height: 200px;
-            }
+    .staff-member:hover {
+        transform: scale(1.05);
+    }
 
-            .buttons {
-                flex-direction: column;
-            }
-        }
+    .banner {
+        height: 100px;
+        position: relative;
+        background: url('https://via.placeholder.com/250x100') center/cover no-repeat;
+    }
 
-        /* CSS para as estrelas */
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            animation: twinkle 2s infinite ease-in-out alternate;
-        }
+    .staff-member img {
+        position: relative;
+        top: -50px;
+        width: 130px;
+        height: 130px;
+        border: 5px solid #1e002e;
+        border-radius: 50%;
+        background: #fff;
+    }
 
-        @keyframes twinkle {
-            from { opacity: 0.5; }
-            to { opacity: 1; }
-        }
-    </style>
+    .staff-info {
+        padding: 15px;
+        margin-top: -30px;
+    }
+
+    .staff-info h3 {
+        margin: 10px 0 5px;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    .staff-info span {
+        display: block;
+        font-size: 1rem;
+        color: #b86bff;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    .staff-info p {
+        margin: 5px 0;
+        font-size: 1rem;
+        color: #ddd;
+    }
+
+</style>
 </head>
 <body>
     <!-- Navegação -->
@@ -297,308 +338,66 @@
     }
 </style>
 
-    <div class="container">
-        <section style="margin-top: 9%;">
-            <div class="row">
-                <div class="col-sm-6 my-1">
-                    <h2 class="fw-bold">Equipe Staff 💜</h2>
-                    <p class="command-descreption">Equipe de staff da Original Gifs.</p>
-                </div>
-            <hr>
-        </section>
-        <div class="mt-4"></div>
-        <div class="row">
-            <div class="col-md-4 my-2">
-                <div class="card p-3">
-                    <h5>Categorias de membros:</h5>
-                    <hr />
-                    <button onclick="active(this)" id="CategoryBtnAll" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class="fad fa-icons ttt"></i>&nbsp; Todos os membros </button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn0" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-gift ttt'></i>&nbsp; Fundadores</button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn1" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-globe-europe ttt'></i>&nbsp; Administradores</button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn2" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fa-hammer-war ttt'></i>&nbsp;&nbsp; Moderadores</button>
-                    
-                        <button onclick="active(this)" id="CategoryBtn3" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class='fas fas fa-crown ttt'></i>&nbsp;&nbsp; Makers</button>
-                    
-                </div>
+    <!-- Explicação: O que é ser Gestor -->
+    <div class="explanation">
+        <h2>O que é ser Gestor?</h2>
+        <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. 
+           O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente 
+           saudável para todos os membros.</p>
+        <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre 
+           buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência 
+           e muito comprometimento.</p>
+    </div>
+
+    <!-- Título da Equipe -->
+    <div class="staff-title">Equipe Staff</div>
+
+    <!-- Equipe Staff -->
+    <div class="staff">
+        <!-- Membro 1 -->
+        <div class="staff-member">
+            <div class="banner" style="background-image: url('https://via.placeholder.com/250x100');"></div>
+            <img src="https://via.placeholder.com/130" alt="Posse">
+            <div class="staff-info">
+                <h3>Real Nemo 🔮</h3>
+                <span>Posse</span>
+                <p>Data de Entrada: 01/01/2023</p>
             </div>
-            <div class="col-md-8 my-2">
-                <input type="text" class="w-100 search-box" oninput="search(this.value)" placeholder="Pesquise um membro" />
-                
-                    
-                        <div class="mt-4"></div>
-                    
-                    <div class="commands-section" id="Category0">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="perfeitodemais">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fperfeitodemais">
-                                             Real Nemo 🔮 / perfeitodemais&nbsp; <span class="command-descreption">- 1037185561422737468</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fperfeitodemais" class="accordion-collapse collapse" data-bs-parent="#perfeitodemais">
-                                        <div class="accordion-body">
-                                            <span>Fundador e Posse</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Fundador des de: 9 de agosto de 2022 as 20:20
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="fadawinx">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#ffadawinx">
-                                            Fada Winx 🔮 / fadawinx&nbsp; <span class="command-descreption">- 514255717377638403</span>
-                                        </button>
-                                    </h2>
-                                    <div id="ffadawinx" class="accordion-collapse collapse" data-bs-parent="#fadawinx">
-                                        <div class="accordion-body">
-                                            <span>Fundadora e Sub-Posse</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Fundadora des de: 20 de setembro de 2023 as 15:27
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="antivocekkj">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fantivocekkj">
-                                          Sem Informações / Sem Informações&nbsp; <span class="command-descreption">- Sem Informações</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fantivocekkj" class="accordion-collapse collapse" data-bs-parent="#antivocekkj">
-                                        <div class="accordion-body">
-                                            <span>Sem Informações</span> <br />
-                                            <span class="examples">
-                                                
-                                                  Sem Informações
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                    </div>
-                
-                    
-                    <div class="commands-section" id="Category1">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="help">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fhelp">
-                                             Indefinido / Vaga&nbsp; <span class="command-descreption"> - Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fhelp" class="accordion-collapse collapse" data-bs-parent="#help">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="ping">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fping">
-                                            Indefinido / Vaga&nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fping" class="accordion-collapse collapse" data-bs-parent="#ping">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="invite">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#finvite">
-                                            Indefinido / Vaga&nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="finvite" class="accordion-collapse collapse" data-bs-parent="#invite">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                
-                    
-                    <div class="commands-section" id="Category2">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="leaderboard">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fleaderboard">
-                                            Indefinido / Vaga&nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fleaderboard" class="accordion-collapse collapse" data-bs-parent="#leaderboard">
-                                        <div class="accordion-body">
-                                            <span>Indefinido</span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                
-                    
-                    <div class="commands-section" id="Category3">
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="jullyntj">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fjullyntj">
-                                            <span class='badge badge-vip rounded-pill'><i class='far fa-crown'></i></span>&nbsp; Indefinido / Indefinido &nbsp; <span class="command-descreption">- Indefinido</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fjullyntj" class="accordion-collapse collapse" data-bs-parent="#jullyntj">
-                                        <div class="accordion-body">
-                                            <span>Indefinido </span> <br />
-                                            <span class="examples">
-                                                
-                                                   Indefinido 
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="172cw">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#172cw">
-                                            <span class='badge badge-vip rounded-pill'><i class='far fa-crown'></i></span>&nbsp; Indefinido  / Indefinido &nbsp; <span class="command-descreption">- Indefinido </span>
-                                        </button>
-                                    </h2>
-                                    <div id="f172cw" class="accordion-collapse collapse" data-bs-parent="#172cw">
-                                        <div class="accordion-body">
-                                            <span>Indefinido </span> <br />
-                                            <span class="examples">
-                                                
-                                                    Indefinido 
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                
+        </div>
+
+        <!-- Membro 2 -->
+        <div class="staff-member">
+            <div class="banner" style="background-image: url('https://via.placeholder.com/250x100');"></div>
+            <img src="https://via.placeholder.com/130" alt="Administrador">
+            <div class="staff-info">
+                <h3>Fada Winx 🔮</h3>
+                <span>Sub-Posse</span>
+                <p>Data de Entrada: 15/02/2023</p>
+            </div>
+        </div>
+
+        <!-- Membro 3 -->
+        <div class="staff-member">
+            <div class="banner" style="background-image: url('https://via.placeholder.com/250x100');"></div>
+            <img src="https://via.placeholder.com/130" alt="Administrador">
+            <div class="staff-info">
+                <h3>Vaga</h3>
+                <span>Administrador</span>
+                <p>Indefinido</p>
+            </div>
+        </div>
+
+        <!-- Membro 4 -->
+        <div class="staff-member">
+            <div class="banner" style="background-image: url('https://via.placeholder.com/250x100');"></div>
+            <img src="https://via.placeholder.com/130" alt="Sub-Administrador">
+            <div class="staff-info">
+                <h3>Vaga</h3>
+                <span>Sub-Administrador(a)</span>
+                <p>Indefinido</p>
             </div>
         </div>
     </div>
-    
-    <input id="commands" value="[{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-gift ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; Moderation Commands&#34;,&#34;commands&#34;:[&#34;perfeitodemais&#34;,&#34;fadawinx&#34;,&#34;antivocekkj&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-globe-europe ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; General Commands&#34;,&#34;commands&#34;:[&#34;help&#34;,&#34;ping&#34;,&#34;invite&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fa-hammer-war ttt&#39;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp; Leveling Commands&#34;,&#34;commands&#34;:[&#34;leaderboard&#34;]},{&#34;title&#34;:&#34;&lt;i class=&#39;fas fas fa-crown ttt&#39;&gt;&lt;/i&gt;&amp;nbsp; Premium Commands&#34;,&#34;commands&#34;:[&#34;jullyntj&#34;,&#34;172cw&#34;]}]" hidden />
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/fontawesome/all.min.js"></script>
-    <script src="/js/animation.js"></script>
-    <script>
-        function active(elm){
-            document.getElementById("CategoryBtnAll").classList.remove("active");
-            
-                document.getElementById("CategoryBtn0").classList.remove("active");
-                document.getElementById("Category0").setAttribute("hidden", "");
-            
-                document.getElementById("CategoryBtn1").classList.remove("active");
-                document.getElementById("Category1").setAttribute("hidden", "");
-            
-                document.getElementById("CategoryBtn2").classList.remove("active");
-                document.getElementById("Category2").setAttribute("hidden", "");
-            
-                document.getElementById("CategoryBtn3").classList.remove("active");
-                document.getElementById("Category3").setAttribute("hidden", "");
-            
-            elm.classList.add("active");
-            if(elm.id.replace("CategoryBtn", "") == "All"){
-                
-                    document.getElementById("Category0").removeAttribute("hidden");
-                
-                    document.getElementById("Category1").removeAttribute("hidden");
-                
-                    document.getElementById("Category2").removeAttribute("hidden");
-                
-                    document.getElementById("Category3").removeAttribute("hidden");
-                
-            }else{
-                document.getElementById("Category" + elm.id.replace("CategoryBtn", "")).removeAttribute("hidden");
-            }
-        }
-        document.getElementById("CategoryBtnAll").click();
-        function search(arg){
-            let commands = JSON.parse(document.getElementById("commands").value);
-            let cmds = [];
-            commands.forEach(category => {
-                category.commands.forEach(command => {
-                    cmds.push(command);
-                })
-            })
-            let existedCmds = cmds.filter(obj => obj.includes(arg.toLowerCase()));
-            cmds.forEach(cmd => {
-                document.getElementById(cmd).setAttribute("hidden", "");
-            })
-            existedCmds.forEach(cmd => {
-                document.getElementById(cmd).removeAttribute("hidden");
-            })
-        }
-    </script>
-
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
      <script>
         // Verifica se o usuário está autenticado
         if (!localStorage.getItem("auth")) {
@@ -606,4 +405,5 @@
             window.location.href = "index.html";
         }
     </script>  
+</body>
 </html>
