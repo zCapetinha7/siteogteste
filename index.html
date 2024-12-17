@@ -3,6 +3,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Original Gifs - Login</title>
     <link rel="shortcut icon" href="assets/monn.gif" />
+       <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Define o URL para "/inicio" na barra de endereço
+        if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+            history.replaceState(null, null, "/login");
+        }
+
+        // Resto do código
+        const body = document.body;
+
+        function createStar(x, y) {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            star.style.left = `${x}px`;
+            star.style.top = `${y}px`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            body.appendChild(star);
+        }
+
+        body.addEventListener("click", (e) => {
+            createStar(e.pageX, e.pageY);
+        });
+
+        for (let i = 0; i < 100; i++) {
+            createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+        }
+    });
+</script>
     <style>
         body {
             margin: 0;
