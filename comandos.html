@@ -333,14 +333,16 @@
             <div class="row">
                 <div class="col-sm-6 my-1">
                     <h2 class="fw-bold">Comandos Original 💜</h2>
-                    <p class="command-descreption">Comandos de admin, moderação, makers e membros da original.</p>
+                    <p class="command-descreption">Argumentos</p>
+                    <p class="command-descreption">`{Exemplo} - Argumento Obrigatório</p>
+                    <p class="command-descreption">`[Exemplo] - Argumento Opcional</p>
                 </div>
         </section>
         <div class="mt-4"></div>
         <div class="row">
             <div class="col-md-4 my-2">
                 <div class="card p-3">
-                    <h5>Select Commands Category</h5>
+                    <h5>Categoria de Comandos</h5>
                     <hr />
                     <button onclick="active(this)" id="CategoryBtnAll" class="text-decoration-none btn btn-primary mt-2 my-1 p-2"><i class="fad fa-icons ttt"></i>&nbsp;Todos os comandos</button>
                     
@@ -367,7 +369,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fban">
-                                             og!ban&nbsp; <span class="command-descreption">- Dar ban em um membro</span>
+                                             og!ban&nbsp; <span class="command-descreption">- Dar ban em membros</span>
                                         </button>
                                     </h2>
                                     <div id="fban" class="accordion-collapse collapse" data-bs-parent="#ban">
@@ -375,7 +377,7 @@
                                             <span>Exemplos:</span> <br />
                                             <span class="examples">
                                                 
-                                                    og!ban <@user> <Motivo></Motivo>
+                                                    og!ban {@user} {Motivo}</Motivo>
                                                 
                                             </span>
                                         </div>
@@ -384,41 +386,59 @@
                             </div>
                         
                             
+                            <div class="accordion accordion-flush mt-2" id="unban">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#funban">
+                                             og!unban&nbsp; <span class="command-descreption">- Desbani um membro</span>
+                                        </button>
+                                    </h2>
+                                    <div id="funban" class="accordion-collapse collapse" data-bs-parent="#unban">
+                                        <div class="accordion-body">
+                                            <span>Exemplos:</span> <br />
+                                            <span class="examples">
+                                                
+                                                    og!ban {ID membro}                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                            <div class="accordion accordion-flush mt-2" id="castigar">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fcastigar">
+                                             og!castigar&nbsp; <span class="command-descreption">- Castiga um membro pra sempre</span>
+                                        </button>
+                                    </h2>
+                                    <div id="fcastigar" class="accordion-collapse collapse" data-bs-parent="#castigar">
+                                        <div class="accordion-body">
+                                            <span>Exemplos</span> <br />
+                                            <span class="examples">
+                                                
+                                                    og!castigar {@user} {Motivo}
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="accordion accordion-flush mt-2" id="kick">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fkick">
-                                             /kick&nbsp; <span class="command-descreption">- kick a member</span>
+                                             og!unban&nbsp; <span class="command-descreption">- Desbani um membro</span>
                                         </button>
                                     </h2>
                                     <div id="fkick" class="accordion-collapse collapse" data-bs-parent="#kick">
                                         <div class="accordion-body">
-                                            <span>Usage Examples:</span> <br />
+                                            <span>Exemplos:</span> <br />
                                             <span class="examples">
                                                 
-                                                    /kick @memebr
-                                                
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            
-                            <div class="accordion accordion-flush mt-2" id="mute">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fmute">
-                                             /mute&nbsp; <span class="command-descreption">- mute a member</span>
-                                        </button>
-                                    </h2>
-                                    <div id="fmute" class="accordion-collapse collapse" data-bs-parent="#mute">
-                                        <div class="accordion-body">
-                                            <span>Usage Examples:</span> <br />
-                                            <span class="examples">
-                                                
-                                                    /mute @member
-                                                
+                                                    og!ban {ID membro}                                                
                                             </span>
                                         </div>
                                     </div>
