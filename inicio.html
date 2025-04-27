@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Original Gifs</title>
-    <link rel="shortcut icon" href="assets/monn.gif" />
+        <link rel="shortcut icon" href="assets/monn.gif" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
     document.addEventListener("DOMContentLoaded", () => {
+        // Define o URL para "/inicio" na barra de endereço
         if (window.location.pathname === "/" || window.location.pathname === "/inicio.html") {
             history.replaceState(null, null, "/inicio");
         }
 
+        // Resto do código
         const body = document.body;
 
         function createStar(x, y) {
             const star = document.createElement("div");
             star.classList.add("star");
-            star.style.left = `${x}px`;
-            star.style.top = `${y}px`;
-            star.style.animationDelay = `${Math.random() * 2}s`;
+            star.style.left = ${x}px;
+            star.style.top = ${y}px;
+            star.style.animationDelay = ${Math.random() * 2}s;
             body.appendChild(star);
         }
 
@@ -31,7 +33,7 @@
             createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
         }
     });
-    </script>
+</script>
     <style>
         * {
             margin: 0;
@@ -42,26 +44,13 @@
 
         body {
             background: url('assets/home-bg.jpg') no-repeat center center fixed; 
-            background-size: cover;
+            background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
             color: #ffffff;
             overflow-x: hidden;
-            position: relative;
-            z-index: 0;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* ESCURECE o fundo */
-            z-index: -1;
         }
 
         /* Navbar */
-        .navbar { /* todo o resto aqui permanece igual */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -70,21 +59,23 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: none;
+            background: none; /* Torna a barra invisível */
         }
 
         .logo {
             font-size: 1.8em;
             color: #a64ac9;
             font-weight: bold;
-            z-index: 1;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
             gap: 15px;
-            z-index: 1;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links li a {
@@ -96,7 +87,7 @@
             gap: 5px;
             padding: 10px 15px;
             border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente apenas nos itens */
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -121,32 +112,26 @@
             border-radius: 2px;
         }
 
-        .icons a, .logout-button {
+        .icons a {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 8px;
-            border-radius: 8px;
+            border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             transition: background-color 0.3s;
             width: 40px;
             height: 40px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1em;
-            cursor: pointer;
         }
 
-        .logout-button {
-            background: linear-gradient(45deg, #a64ac9, #8b2b9e);
-            padding: 10px 20px;
-            border: none;
+        .icons a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .logout-button:hover {
-            background: linear-gradient(45deg, #8b2b9e, #6a1b9a);
-            transform: scale(1.05);
+        .icons img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1);
         }
 
         /* Hero Section */
@@ -156,8 +141,6 @@
             justify-content: space-between;
             padding: 150px 50px 50px;
             min-height: 100vh;
-            position: relative;
-            z-index: 1;
         }
 
         .hero-content {
@@ -166,7 +149,7 @@
 
         .hero h1 {
             font-size: 3em;
-            color: #7300ff;
+            color: #ffffff;
             margin-bottom: 20px;
         }
 
@@ -188,14 +171,17 @@
             margin-top: 20px;
         }
 
-        .button.primary {
-            background-color: #a64ac9;
-            color: #ffffff;
+        .button {
+            text-decoration: none;
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: bold;
-            text-decoration: none;
             transition: background-color 0.3s;
+        }
+
+        .button.primary {
+            background-color: #a64ac9;
+            color: #ffffff;
         }
 
         .button.primary:hover {
@@ -205,17 +191,13 @@
         .button.secondary {
             background-color: #444444;
             color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s;
         }
 
         .button.secondary:hover {
             background-color: #333333;
         }
 
+        /* Video Frame */
         .video-frame iframe {
             width: 500px;
             height: 300px;
@@ -253,7 +235,7 @@
             }
         }
 
-        /* CSS para estrelas */
+        /* CSS para as estrelas */
         .star {
             position: absolute;
             width: 3px;
@@ -261,7 +243,6 @@
             background-color: #ffffff;
             border-radius: 50%;
             animation: twinkle 2s infinite ease-in-out alternate;
-            z-index: 2;
         }
 
         @keyframes twinkle {
@@ -272,21 +253,54 @@
 
 </head>
 <body>
-    <div class="background-overlay"></div> <!-- NOVO: camada escura -->
-
     <!-- Navegação -->
-    <nav class="navbar">
-        <div class="logo">ORIGINAL</div>
-        <ul class="nav-links">
-            <li><a href="#inicio" class="active"><span class="material-icons">home</span>Início</a></li>
-            <li><a href="membros.html"><span class="material-icons">group</span>Membros</a></li>
-            <li><a href="https://www.authpro.com/auth/zcapetinha7/"><span class="material-icons">code</span>Comandos</a></li>
-            <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
-        </ul>
-        <div class="icons">
-            <button class="logout-button" onclick="logout()">Sair</button>
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="logo">ORIGINAL</div>
+    <ul class="nav-links">
+        <li><a href="#inicio" class="active"><span class="material-icons">home</span>Início</a></li>
+        <li><a href="membros.html"><span class="material-icons">group</span>Membros</a></li>
+        <li><a href="https://www.authpro.com/auth/zcapetinha7/"><span class="material-icons">code</span>Comandos</a></li>
+        <li><a href="https://discord.com/channels/1006703572601294888/1059233147889385633"><span class="material-icons">description</span>Diretrizes</a></li>
+    </ul>
+    <div class="icons">
+        <button class="logout-button" onclick="logout()">Sair</button>
+    </div>
+</nav>
+
+<style>
+    .logout-button {
+        background: linear-gradient(45deg, #a64ac9, #8b2b9e);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        text-align: center;
+    }
+
+    .logout-button:hover {
+        background: linear-gradient(45deg, #8b2b9e, #6a1b9a);
+        transform: scale(1.05);
+    }
+</style>
+
+<script>
+    function logout() {
+        // Remove a autenticação do armazenamento local
+        localStorage.removeItem("auth");
+        // Redireciona para a página de login
+        window.location.href = "index.html";
+    }
+
+    // Verifica se o usuário está autenticado
+    if (!localStorage.getItem("auth")) {
+        // Redireciona para a página de login se não autenticado
+        window.location.href = "index.html";
+    }
+</script>
 
     <!-- Seção Principal -->
     <section class="hero">
@@ -301,34 +315,19 @@
             </div>
         </div>
         <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/v7Y2DMjoyoY?si=3pJYU0Dd1_K4eEMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v7Y2DMjoyoY?si=3pJYU0Dd1_K4eEMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
     </section>
 
     <script>
-        function logout() {
-            localStorage.removeItem("auth");
-            window.location.href = "index.html";
-        }
-
-        // Bloqueios de DevTools
-        document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
-        document.addEventListener("keydown", function (e) {
-            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
-                e.preventDefault();
-            }
-        });
-
-        // Estrelas
         document.addEventListener("DOMContentLoaded", () => {
             const body = document.body;
 
             function createStar(x, y) {
                 const star = document.createElement("div");
                 star.classList.add("star");
-                star.style.left = `${x}px`;
-                star.style.top = `${y}px`;
-                star.style.animationDelay = `${Math.random() * 2}s`;
+                star.style.left = ${x}px;
+                star.style.top = ${y}px;
+                star.style.animationDelay = ${Math.random() * 2}s;
                 body.appendChild(star);
             }
 
@@ -340,10 +339,30 @@
                 createStar(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
             }
         });
-
-        // Aviso no console
-        console.log("Este site é protegido. Copiar ou reutilizar scripts sem autorização pode levar a sanções legais.");
     </script>
 
+    <script>
+        // Verifica se o usuário está autenticado
+        if (!localStorage.getItem("auth")) {
+            // Se não estiver autenticado, redireciona para o login
+            window.location.href = "index.html";
+        }
+    </script>    
+        </script>  
+       <script>
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+    <!-- Aviso no console -->
+    <script>
+        console.log("Este site é protegido. Copiar ou reutilizar scripts sem autorização pode levar a sanções legais.");
+    </script>
 </body>
 </html>
