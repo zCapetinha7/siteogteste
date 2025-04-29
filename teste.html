@@ -1,3 +1,4 @@
+<!-- Atualizado para adicionar animação de aparecer ao descer e unir fundadores + cofundadores -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -88,10 +89,20 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       cursor: pointer;
       transition: 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
     }
 
     .profile-card:hover {
       transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .profile-banner {
@@ -186,11 +197,8 @@
     <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
   </div>
 
-  <div class="section-title">Fundadores</div>
+  <div class="section-title">Fundadores e Co-Fundadores</div>
   <div class="staff-container" id="fundadores"></div>
-
-  <div class="section-title">Co-Fundadores</div>
-  <div class="staff-container" id="cofundadores"></div>
 
   <div class="section-title">Desenvolvedores</div>
   <div class="staff-container" id="desenvolvedores"></div>
@@ -208,9 +216,7 @@
     const perfis = {
       fundadores: [
         { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
-        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' }
-      ],
-      cofundadores: [
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' },
         { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
       ],
       desenvolvedores: [
@@ -265,7 +271,6 @@
 
     window.onload = () => {
       for (const fundador of perfis.fundadores) criarPerfil(fundador, 'fundadores');
-      for (const cofundador of perfis.cofundadores) criarPerfil(cofundador, 'cofundadores');
       for (const dev of perfis.desenvolvedores) criarPerfil(dev, 'desenvolvedores');
     }
   </script>
