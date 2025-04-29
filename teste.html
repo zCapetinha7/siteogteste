@@ -21,61 +21,120 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 50px 20px;
+      padding-top: 80px;
     }
 
-    .staff-title {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #1a001f;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      color: #b86bff;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1em;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #b86bff;
+    }
+
+    .section-title {
       font-size: 2rem;
       font-weight: bold;
       color: #b86bff;
-      margin-bottom: 30px;
+      margin: 40px 0 20px;
     }
 
-    .credits-container {
+    .staff-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 30px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
     }
 
-    .credit-card {
-      width: 200px;
+    .profile-card {
       background: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
-      cursor: pointer;
+      width: 200px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .credit-card:hover {
-      transform: translateY(-5px);
+    .profile-card:hover {
+      transform: scale(1.05);
     }
 
-    .credit-img {
+    .profile-banner {
       width: 100%;
-      height: 150px;
+      height: 100px;
       object-fit: cover;
     }
 
-    .credit-name {
+    .profile-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-top: -45px;
+      border: 3px solid #1a001f;
+      object-fit: cover;
+    }
+
+    .profile-info {
       padding: 10px;
-      font-size: 1rem;
-      font-weight: bold;
+    }
+
+    .profile-info h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1rem;
+    }
+
+    .profile-info span,
+    .profile-info p {
+      font-size: 0.9rem;
+      color: #bbb;
     }
 
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
+      z-index: 2000;
     }
 
     .modal.show {
@@ -84,20 +143,11 @@
 
     .modal-content {
       background: #121212;
-      padding: 20px;
+      padding: 30px;
       border-radius: 15px;
-      max-width: 600px;
+      max-width: 500px;
       color: #fff;
-    }
-
-    .modal-content h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .modal-content p {
-      font-size: 1rem;
-      line-height: 1.6;
+      text-align: center;
     }
 
     .modal-avatar {
@@ -108,88 +158,115 @@
     }
 
     .close-modal {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.2rem;
-      cursor: pointer;
       position: absolute;
       top: 20px;
       right: 30px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="staff-title">Equipe Staff</div>
-  <div class="credits-container" id="staff-container"></div>
+  <nav class="navbar">
+    <div class="logo">ORIGINAL</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="#" class="active">Membros</a></li>
+      <li><a href="#">Comandos</a></li>
+      <li><a href="#">Diretrizes</a></li>
+    </ul>
+  </nav>
 
-  <div id="user-modal" class="modal">
+  <div class="section-title">O que é ser Gestor?</div>
+  <div style="max-width: 800px; text-align: center; padding: 0 20px; margin-bottom: 40px;">
+    <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente saudável para todos os membros.</p>
+    <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
+  </div>
+
+  <div class="section-title">Fundadores</div>
+  <div class="staff-container" id="fundadores"></div>
+
+  <div class="section-title">Co-Fundadores</div>
+  <div class="staff-container" id="cofundadores"></div>
+
+  <div class="section-title">Desenvolvedores</div>
+  <div class="staff-container" id="desenvolvedores"></div>
+
+  <div class="modal" id="user-modal">
     <div class="modal-content">
-      <button class="close-modal" onclick="closeUserModal()">&times;</button>
-      <img id="modal-avatar" class="modal-avatar" alt="Avatar">
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+      <img id="modal-avatar" class="modal-avatar">
       <h2 id="modal-name"></h2>
-      <p id="modal-story"></p>
+      <p id="modal-bio"></p>
     </div>
   </div>
 
   <script>
-    const staffMembers = [
-      {
-        id: 'nemo',
-        name: 'Real Nemo 🔮',
-        avatar: 'assets/Perfil/avatarnemo.png',
-        banner: 'assets/Perfil/bannernemo.gif',
-        cargo: 'Posse',
-        entrada: '22/09/2023',
-        bio: 'Nemo é o líder da Original Gifs. Organizado, criativo e sempre buscando inovação no servidor.'
-      },
-      {
-        id: 'fada',
-        name: 'Fada Winx 🔮',
-        avatar: 'assets/Perfil/avatarfadawinx.png',
-        banner: 'assets/Perfil/bannerfada.webp',
-        cargo: 'Sub-Posse',
-        entrada: '15/02/2023',
-        bio: 'Fada é a luz mágica do time, responsável por manter o equilíbrio e a estética do grupo.'
+    const perfis = {
+      fundadores: [
+        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' }
+      ],
+      cofundadores: [
+        { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
+      ],
+      desenvolvedores: [
+        { id: '1080175803024814142', nome: 'DarkMode', cargo: 'Dev', banner: 'https://via.placeholder.com/200x100', entrada: '15/03/2023', bio: 'Criador do CMSP Hacks, conhecido pelo uso intensivo de IA.' }
+      ]
+    };
+
+    async function buscarAvatar(id) {
+      try {
+        const res = await fetch(`https://discord-lookup-api-sandy.vercel.app/v1/user/${id}`);
+        const data = await res.json();
+        return data.avatar?.link + '.png?size=2048' || 'https://i.imgur.com/wubcMzk.jpeg';
+      } catch (e) {
+        return 'https://i.imgur.com/wubcMzk.jpeg';
       }
-      // Adicione mais membros aqui seguindo o mesmo formato
-    ];
+    }
 
-    const container = document.getElementById('staff-container');
-
-    staffMembers.forEach(member => {
+    async function criarPerfil(user, containerId) {
+      const container = document.getElementById(containerId);
       const card = document.createElement('div');
-      card.className = 'credit-card';
+      card.className = 'profile-card';
 
-      const img = document.createElement('img');
-      img.src = member.banner;
-      img.className = 'credit-img';
-      card.appendChild(img);
+      const banner = document.createElement('img');
+      banner.className = 'profile-banner';
+      banner.src = user.banner;
+      card.appendChild(banner);
 
       const avatar = document.createElement('img');
-      avatar.src = member.avatar;
-      avatar.className = 'modal-avatar';
-      avatar.style.marginTop = '-40px';
+      avatar.className = 'profile-avatar';
+      avatar.src = await buscarAvatar(user.id);
       card.appendChild(avatar);
 
-      const name = document.createElement('div');
-      name.className = 'credit-name';
-      name.textContent = `${member.name}\n${member.cargo}\n${member.entrada}`;
-      card.appendChild(name);
+      const info = document.createElement('div');
+      info.className = 'profile-info';
+      info.innerHTML = `<h3>${user.nome}</h3><span>${user.cargo}</span><p>${user.entrada}</p>`;
+      card.appendChild(info);
 
-      card.addEventListener('click', () => openUserModal(member));
+      card.onclick = () => abrirModal(user, avatar.src);
       container.appendChild(card);
-    });
+    }
 
-    function openUserModal(member) {
-      document.getElementById('modal-name').textContent = `${member.name} - ${member.cargo}`;
-      document.getElementById('modal-story').textContent = member.bio;
-      document.getElementById('modal-avatar').src = member.avatar;
+    function abrirModal(user, avatarUrl) {
+      document.getElementById('modal-avatar').src = avatarUrl;
+      document.getElementById('modal-name').textContent = `${user.nome} - ${user.cargo}`;
+      document.getElementById('modal-bio').textContent = user.bio;
       document.getElementById('user-modal').classList.add('show');
     }
 
-    function closeUserModal() {
+    function closeModal() {
       document.getElementById('user-modal').classList.remove('show');
+    }
+
+    window.onload = () => {
+      for (const fundador of perfis.fundadores) criarPerfil(fundador, 'fundadores');
+      for (const cofundador of perfis.cofundadores) criarPerfil(cofundador, 'cofundadores');
+      for (const dev of perfis.desenvolvedores) criarPerfil(dev, 'desenvolvedores');
     }
   </script>
 </body>
