@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Equipe Original Gifs</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,26 +14,32 @@
     }
 
     body {
-      background: url('assets/maisrxbannerog.jpg') center center/cover no-repeat;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 80px;
+      background: url('assets/maisrxbannerog.jpg') no-repeat center center fixed;
+      background-size: cover;
       position: relative;
-      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding-top: 80px;
+      color: #fff;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
     }
 
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 50px;
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(26, 0, 31, 0.9);
+      padding: 10px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       z-index: 1000;
     }
 
@@ -53,10 +58,9 @@
     .nav-links li a {
       text-decoration: none;
       color: #fff;
-      font-size: 1em;
       padding: 10px 15px;
       border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.1);
       transition: 0.3s;
     }
 
@@ -73,33 +77,30 @@
       text-align: center;
     }
 
-    .section-description {
-      text-align: center;
-      font-size: 1rem;
+    .description {
       max-width: 800px;
+      margin: 0 auto 40px;
       padding: 0 20px;
-      margin-bottom: 40px;
+      text-align: center;
     }
 
-    .staff-container {
+    .profiles-row {
       display: flex;
-      justify-content: space-around;
-      width: 100%;
-      max-width: 1200px;
-      gap: 30px;
-      margin-bottom: 40px;
       flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 40px;
     }
 
     .profile-card {
       background: #1e1e1e;
-      border-radius: 10px;
-      overflow: hidden;
-      width: 250px;
+      border-radius: 12px;
+      width: 200px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       cursor: pointer;
-      transition: 0.3s;
+      transition: transform 0.3s ease;
+      padding: 15px 10px;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 0.6s ease forwards;
@@ -120,13 +121,9 @@
       width: 90px;
       height: 90px;
       border-radius: 50%;
-      margin-top: -45px;
       border: 3px solid #1a001f;
       object-fit: cover;
-    }
-
-    .profile-info {
-      padding: 10px;
+      margin-bottom: 10px;
     }
 
     .profile-info h3 {
@@ -143,11 +140,10 @@
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
       z-index: 2000;
@@ -164,6 +160,7 @@
       max-width: 500px;
       color: #fff;
       text-align: center;
+      position: relative;
     }
 
     .modal-avatar {
@@ -189,7 +186,7 @@
   <nav class="navbar">
     <div class="logo">ORIGINAL</div>
     <ul class="nav-links">
-      <li><a href="index.html">Início</a></li>
+      <li><a href="#">Início</a></li>
       <li><a href="#" class="active">Membros</a></li>
       <li><a href="#">Comandos</a></li>
       <li><a href="#">Diretrizes</a></li>
@@ -197,32 +194,25 @@
   </nav>
 
   <div class="section-title">O que é ser Gestor?</div>
-  <div class="section-description">
+  <div class="description">
     <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente saudável para todos os membros.</p>
     <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
   </div>
 
-  <div class="staff-container">
-    <div>
-      <div class="section-title">Fundadores</div>
-      <div id="fundadores"></div>
-    </div>
-    <div>
-      <div class="section-title">Co-Fundadores</div>
-      <div id="cofundadores"></div>
-    </div>
-  </div>
+  <div class="section-title">Fundadores</div>
+  <div class="profiles-row" id="fundadores"></div>
+
+  <div class="section-title">Co-Fundadores</div>
+  <div class="profiles-row" id="cofundadores"></div>
 
   <div class="section-title">Desenvolvedores</div>
-  <div class="staff-container" id="desenvolvedores"></div>
+  <div class="profiles-row" id="desenvolvedores"></div>
 
   <div class="modal" id="user-modal">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal()">&times;</button>
       <img id="modal-avatar" class="modal-avatar">
       <h2 id="modal-name"></h2>
-      <p id="modal-cargo"></p>
-      <p id="modal-entrada"></p>
       <p id="modal-bio"></p>
     </div>
   </div>
@@ -246,7 +236,7 @@
         const res = await fetch(`https://discord-lookup-api-sandy.vercel.app/v1/user/${id}`);
         const data = await res.json();
         return data.avatar?.link + '.png?size=2048' || 'https://i.imgur.com/wubcMzk.jpeg';
-      } catch (e) {
+      } catch {
         return 'https://i.imgur.com/wubcMzk.jpeg';
       }
     }
@@ -272,9 +262,7 @@
 
     function abrirModal(user, avatarUrl) {
       document.getElementById('modal-avatar').src = avatarUrl;
-      document.getElementById('modal-name').textContent = user.nome;
-      document.getElementById('modal-cargo').textContent = `Cargo: ${user.cargo}`;
-      document.getElementById('modal-entrada').textContent = `Entrou em: ${user.entrada}`;
+      document.getElementById('modal-name').textContent = `${user.nome} - ${user.cargo}`;
       document.getElementById('modal-bio').textContent = user.bio;
       document.getElementById('user-modal').classList.add('show');
     }
@@ -284,10 +272,10 @@
     }
 
     window.onload = () => {
-      for (const fundador of perfis.fundadores) criarPerfil(fundador, 'fundadores');
-      for (const cofundador of perfis.cofundadores) criarPerfil(cofundador, 'cofundadores');
-      for (const dev of perfis.desenvolvedores) criarPerfil(dev, 'desenvolvedores');
-    }
+      perfis.fundadores.forEach(p => criarPerfil(p, 'fundadores'));
+      perfis.cofundadores.forEach(p => criarPerfil(p, 'cofundadores'));
+      perfis.desenvolvedores.forEach(p => criarPerfil(p, 'desenvolvedores'));
+    };
   </script>
 </body>
 </html>
