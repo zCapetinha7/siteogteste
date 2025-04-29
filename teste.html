@@ -1,132 +1,309 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipe Original Gifs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #6a1b9a, #4a148c);
-            color: white;
-            overflow-x: hidden;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.7);
-        }
-        nav a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-        }
-        .team-explanation {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .profile-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-        .profile {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin: 10px;
-            width: 250px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .profile:hover {
-            transform: scale(1.05);
-        }
-        .profile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .profile h3 {
-            margin: 10px 0;
-        }
-        .profile .bio {
-            color: #bbb;
-            font-size: 14px;
-        }
-        .profile .role {
-            font-weight: bold;
-            color: #f1f1f1;
-        }
-        .bio-link {
-            color: #d1c4e9;
-            text-decoration: none;
-        }
-        .bio-link:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.7);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipe Original Gifs</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #2c003e, #1a001f);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #1a001f;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      color: #b86bff;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1em;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #b86bff;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b86bff;
+      margin: 40px 0 20px;
+    }
+
+    .staff-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .profile-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .profile-card:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-banner {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .profile-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-top: -45px;
+      border: 3px solid #1a001f;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      padding: 10px;
+    }
+
+    .profile-info h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1rem;
+    }
+
+    .profile-info span,
+    .profile-info p {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #121212;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .modal-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Adicionado estilo para separar Co-Fundadores */
+    .fundadores-cofundadores-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      width: 100%;
+    }
+
+    .fundadores-container,
+    .cofundadores-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      width: 48%;
+    }
+
+    .desenvolvedores-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      width: 100%;
+    }
+
+  </style>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="logo">ORIGINAL</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="#" class="active">Membros</a></li>
+      <li><a href="#">Comandos</a></li>
+      <li><a href="#">Diretrizes</a></li>
+    </ul>
+  </nav>
 
-<header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
-    </nav>
-</header>
+  <div class="section-title">O que é ser Gestor?</div>
+  <div style="max-width: 800px; text-align: center; padding: 0 20px; margin-bottom: 40px;">
+    <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente saudável para todos os membros.</p>
+    <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
+  </div>
 
-<div class="team-explanation">
-    <h2>Sobre a Equipe Original Gifs</h2>
-    <p>Somos uma equipe dedicada à criação de conteúdos e gifs personalizados para a comunidade. Nosso objetivo é trazer o melhor em criatividade e inovação para os nossos seguidores!</p>
-</div>
+  <div class="section-title">Fundadores e Co-Fundadores</div>
+  <div class="fundadores-cofundadores-container">
+    <div class="fundadores-container" id="fundadores"></div>
+    <div class="cofundadores-container" id="cofundadores"></div>
+  </div>
 
-<div class="profile-container">
-    <!-- Fundadores -->
-    <h2 style="width: 100%; text-align: center; color: #fff;">Fundadores</h2>
-    <div class="profile">
-        <img src="https://cdn.discordapp.com/avatars/ID_FUNDADOR.png" alt="Fundador">
-        <h3>Nome do Fundador</h3>
-        <p class="role">Fundador</p>
-        <p>Data de entrada: 01/01/2022</p>
-        <p class="bio"><a href="#" class="bio-link">Clique para ler a bio</a></p>
+  <div class="section-title">Desenvolvedores</div>
+  <div class="desenvolvedores-container" id="desenvolvedores"></div>
+
+  <div class="modal" id="user-modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+      <img id="modal-avatar" class="modal-avatar">
+      <h2 id="modal-name"></h2>
+      <p id="modal-bio"></p>
     </div>
+  </div>
 
-    <!-- Co-Fundadores -->
-    <h2 style="width: 100%; text-align: center; color: #fff;">Co-Fundadores</h2>
-    <div class="profile">
-        <img src="https://cdn.discordapp.com/avatars/ID_COFUNDADOR.png" alt="Co-Fundador">
-        <h3>Nome do Co-Fundador</h3>
-        <p class="role">Co-Fundador</p>
-        <p>Data de entrada: 01/06/2023</p>
-        <p class="bio"><a href="#" class="bio-link">Clique para ler a bio</a></p>
-    </div>
+  <script>
+    const perfis = {
+      fundadores: [
+        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' },
+      ],
+      cofundadores: [
+        { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
+      ],
+      desenvolvedores: [
+        { id: '1080175803024814142', nome: 'DarkMode', cargo: 'Dev', banner: 'https://via.placeholder.com/200x100', entrada: '15/03/2023', bio: 'Criador do CMSP Hacks, conhecido pelo uso intensivo de IA.' }
+      ]
+    };
 
-    <!-- Desenvolvedores -->
-    <h2 style="width: 100%; text-align: center; color: #fff;">Desenvolvedores</h2>
-    <div class="profile">
-        <img src="https://cdn.discordapp.com/avatars/ID_DESENVOLVEDOR.png" alt="Desenvolvedor">
-        <h3>Nome do Desenvolvedor</h3>
-        <p class="role">Desenvolvedor</p>
-        <p>Data de entrada: 15/03/2024</p>
-        <p class="bio"><a href="#" class="bio-link">Clique para ler a bio</a></p>
-    </div>
-</div>
+    async function buscarAvatar(id) {
+      try {
+        const res = await fetch(`https://discord-lookup-api-sandy.vercel.app/v1/user/${id}`);
+        const data = await res.json();
+        return data.avatar?.link + '.png?size=2048' || 'https://i.imgur.com/wubcMzk.jpeg';
+      } catch (e) {
+        return 'https://i.imgur.com/wubcMzk.jpeg';
+      }
+    }
 
-<footer>
-    <p>Equipe Original Gifs © 2025</p>
-</footer>
+    async function criarPerfil(user, containerId) {
+      const container = document.getElementById(containerId);
+      const card = document.createElement('div');
+      card.className = 'profile-card';
 
+      const banner = document.createElement('img');
+      banner.className = 'profile-banner';
+      banner.src = user.banner;
+      card.appendChild(banner);
+
+      const avatar = document.createElement('img');
+      avatar.className = 'profile-avatar';
+      avatar.src = await buscarAvatar(user.id);
+      card.appendChild(avatar);
+
+      const info = document.createElement('div');
+      info.className = 'profile-info';
+      info.innerHTML = `<h3>${user.nome}</h3><span>${user.cargo}</span><p>${user.entrada}</p>`;
+      card.appendChild(info);
+
+      card.onclick = () => abrirModal(user, avatar.src);
+      container.appendChild(card);
+    }
+
+    function abrirModal(user, avatarUrl) {
+      document.getElementById('modal-avatar').src = avatarUrl;
+      document.getElementById('modal-name').textContent = `${user.nome} - ${user.cargo}`;
+      document.getElementById('modal-bio').textContent = user.bio;
+      document.getElementById('user-modal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('user-modal').classList.remove('show');
+    }
+
+    window.onload = () => {
+      for (const fundador of perfis.fundadores) criarPerfil(fundador, 'fundadores');
+      for (const cofundador of perfis.cofundadores) criarPerfil(cofundador, 'cofundadores');
+      for (const dev of perfis.desenvolvedores) criarPerfil(dev, 'desenvolvedores');
+    }
+  </script>
 </body>
 </html>
