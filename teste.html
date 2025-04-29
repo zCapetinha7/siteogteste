@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipe Original Gifs</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
+    body {
+      background: linear-gradient(135deg, #2c003e, #1a001f);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .staff-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b86bff;
+      margin-bottom: 30px;
+    }
+
+    .credits-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .credit-card {
+      width: 200px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .credit-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .credit-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .credit-name {
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #121212;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 600px;
+      color: #fff;
+    }
+
+    .modal-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .modal-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .close-modal {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="staff-title">Equipe Staff</div>
+  <div class="credits-container" id="staff-container"></div>
+
+  <div id="user-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeUserModal()">&times;</button>
+      <img id="modal-avatar" class="modal-avatar" alt="Avatar">
+      <h2 id="modal-name"></h2>
+      <p id="modal-story"></p>
+    </div>
+  </div>
+
+  <script>
+    const staffMembers = [
+      {
+        id: 'nemo',
+        name: 'Real Nemo 🔮',
+        avatar: 'assets/Perfil/avatarnemo.png',
+        banner: 'assets/Perfil/bannernemo.gif',
+        cargo: 'Posse',
+        entrada: '22/09/2023',
+        bio: 'Nemo é o líder da Original Gifs. Organizado, criativo e sempre buscando inovação no servidor.'
+      },
+      {
+        id: 'fada',
+        name: 'Fada Winx 🔮',
+        avatar: 'assets/Perfil/avatarfadawinx.png',
+        banner: 'assets/Perfil/bannerfada.webp',
+        cargo: 'Sub-Posse',
+        entrada: '15/02/2023',
+        bio: 'Fada é a luz mágica do time, responsável por manter o equilíbrio e a estética do grupo.'
+      }
+      // Adicione mais membros aqui seguindo o mesmo formato
+    ];
+
+    const container = document.getElementById('staff-container');
+
+    staffMembers.forEach(member => {
+      const card = document.createElement('div');
+      card.className = 'credit-card';
+
+      const img = document.createElement('img');
+      img.src = member.banner;
+      img.className = 'credit-img';
+      card.appendChild(img);
+
+      const avatar = document.createElement('img');
+      avatar.src = member.avatar;
+      avatar.className = 'modal-avatar';
+      avatar.style.marginTop = '-40px';
+      card.appendChild(avatar);
+
+      const name = document.createElement('div');
+      name.className = 'credit-name';
+      name.textContent = `${member.name}\n${member.cargo}\n${member.entrada}`;
+      card.appendChild(name);
+
+      card.addEventListener('click', () => openUserModal(member));
+      container.appendChild(card);
+    });
+
+    function openUserModal(member) {
+      document.getElementById('modal-name').textContent = `${member.name} - ${member.cargo}`;
+      document.getElementById('modal-story').textContent = member.bio;
+      document.getElementById('modal-avatar').src = member.avatar;
+      document.getElementById('user-modal').classList.add('show');
+    }
+
+    function closeUserModal() {
+      document.getElementById('user-modal').classList.remove('show');
+    }
+  </script>
+</body>
+</html>
