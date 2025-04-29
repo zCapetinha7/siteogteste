@@ -14,7 +14,7 @@
     }
 
     body {
-      background: url('assets/maisrxbannerog.jpg') no-repeat center center fixed;
+      background: url('assets/banneroriginal') no-repeat center center fixed;
       background-size: cover;
       position: relative;
       min-height: 100vh;
@@ -84,12 +84,18 @@
       text-align: center;
     }
 
+    .profiles-container {
+      background-color: rgba(26, 0, 31, 0.8);
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+
     .profiles-row {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
       justify-content: center;
-      margin-bottom: 40px;
     }
 
     .profile-card {
@@ -199,14 +205,16 @@
     <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
   </div>
 
-  <div class="section-title">Fundadores</div>
-  <div class="profiles-row" id="fundadores"></div>
+  <div class="profiles-container">
+    <div class="section-title">Fundadores</div>
+    <div class="profiles-row" id="fundadores"></div>
 
-  <div class="section-title">Co-Fundadores</div>
-  <div class="profiles-row" id="cofundadores"></div>
+    <div class="section-title">Co-Fundadores</div>
+    <div class="profiles-row" id="cofundadores"></div>
 
-  <div class="section-title">Desenvolvedores</div>
-  <div class="profiles-row" id="desenvolvedores"></div>
+    <div class="section-title">Desenvolvedores</div>
+    <div class="profiles-row" id="desenvolvedores"></div>
+  </div>
 
   <div class="modal" id="user-modal">
     <div class="modal-content">
