@@ -22,6 +22,8 @@
       flex-direction: column;
       align-items: center;
       padding-top: 80px;
+      position: relative;
+      overflow: hidden;
     }
 
     .navbar {
@@ -205,9 +207,38 @@
       width: 100%;
     }
 
+    /* Animação das estrelas */
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #fff;
+      opacity: 0.6;
+      animation: twinkle 1.5s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% {
+        transform: scale(1) translateY(0);
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5) translateY(20px);
+        opacity: 0.6;
+      }
+    }
+
+    .star:nth-child(odd) {
+      animation-duration: 2s;
+    }
+
   </style>
 </head>
 <body>
+  <div class="stars"></div>
+
   <nav class="navbar">
     <div class="logo">ORIGINAL</div>
     <ul class="nav-links">
@@ -237,6 +268,25 @@
   </div>
 
   <script>
+    // Função para criar as estrelas
+    function createStars(num) {
+      const container = document.querySelector('.stars');
+      for (let i = 0; i < num; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.width = `${Math.random() * 3 + 1}px`;
+        star.style.height = star.style.width;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        container.appendChild(star);
+      }
+    }
+
+    // Cria as estrelas quando a página carrega
+    window.onload = () => {
+      createStars(200);
+    }
+
     const perfis = {
       fundadores: [
         { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
