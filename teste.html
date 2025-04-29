@@ -53,23 +53,23 @@
       text-align: center;
     }
 
-.profiles-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Espaçamento pequeno */
-  justify-content: flex-start;
-}
-
+    .profiles-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+      margin-bottom: 40px;
+    }
 
     .profile-card {
       background: rgba(30, 30, 30, 0.85);
       border-radius: 15px;
       text-align: center;
       padding: 15px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       transition: 0.3s;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      width: 220px; /* Ajustado para o tamanho menor */
+      width: 240px;
     }
 
     .profile-card:hover {
@@ -77,8 +77,8 @@
     }
 
     .profile-avatar {
-      width: 60px; /* Ajustado para o tamanho menor */
-      height: 60px; /* Ajustado para o tamanho menor */
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #b86bff;
@@ -87,18 +87,18 @@
 
     .profile-info h3 {
       margin: 10px 0 5px;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .profile-info span {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #aaa;
     }
 
     .profile-info p {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: #ccc;
-      margin-top: 8px;
+      margin-top: 6px;
     }
   </style>
 </head>
@@ -111,37 +111,30 @@
       <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
     </div>
 
-    <div class="profiles-row">
-      <div class="profiles-col">
-        <div class="section-title">Fundadores</div>
-        <div id="fundadores"></div>
-      </div>
-      <div class="profiles-col">
-        <div class="section-title">Co-Fundadores</div>
-        <div id="cofundadores"></div>
-      </div>
-    </div>
+    <div class="section-title">Fundadores</div>
+    <div class="profiles-row" id="fundadores"></div>
 
-    <div>
-      <div class="section-title">Desenvolvedores</div>
-      <div class="profiles-row" id="desenvolvedores"></div>
-    </div>
+    <div class="section-title">Co-Fundadores</div>
+    <div class="profiles-row" id="cofundadores"></div>
+
+    <div class="section-title">Desenvolvedores</div>
+    <div class="profiles-row" id="desenvolvedores"></div>
   </div>
 
   <script>
     const perfis = {
       fundadores: [
-        { id: '1037185561422737468', nome: 'Real Nemo', cargo: 'Posse', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
-        { id: '514255717377638403', nome: 'Fada Winx', cargo: 'Sub-Posse', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' }
+        { id: '1037185561422737468', nome: 'Real Nemo', cargo: 'Posse', entrada: '01/01/2023', bio: 'Lider do projeto e dono da visão.' },
+        { id: '514255717377638403', nome: 'Fada Winx', cargo: 'Sub-Posse', entrada: '01/01/2023', bio: 'Ajuda nas decisões principais do servidor.' }
       ],
       cofundadores: [
-        { id: '514255717377638403', nome: 'Seven', cargo: 'Co-Fundador', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' },
-        { id: '1080175803024814142', nome: 'Shadow', cargo: 'Co-Fundador', entrada: '10/05/2023', bio: 'Shadow é responsável pela parte de design e animações.' }
+        { id: '514255717377638403', nome: 'Seven', cargo: 'Co-Fundador', entrada: '01/02/2023', bio: 'Administra a parte financeira e é viciado em Roblox.' },
+        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Co-Fundador', entrada: '15/02/2023', bio: 'Responsável pela organização de eventos.' }
       ],
       desenvolvedores: [
         { id: '514255717377638403', nome: 'DarkMode', cargo: 'Dev', entrada: '15/03/2023', bio: 'Criador do CMSP Hacks, conhecido pelo uso intensivo de IA.' },
-        { id: '123456789012345678', nome: 'Techno', cargo: 'Dev', entrada: '05/02/2023', bio: 'Especialista em backend, sempre em busca de novas tecnologias.' },
-        { id: '234567890123456789', nome: 'Max', cargo: 'Dev', entrada: '12/07/2023', bio: 'Max é o responsável pela integração e manutenção do servidor.' }
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Dev', entrada: '01/04/2023', bio: 'Especialista em bots e automações.' },
+        { id: '1080175803024814142', nome: 'SkyDev', cargo: 'Dev', entrada: '10/04/2023', bio: 'Faz otimizações no front-end do site.' }
       ]
     };
 
