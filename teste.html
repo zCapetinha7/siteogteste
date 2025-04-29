@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Equipe Original Gifs</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -15,55 +14,26 @@
     }
 
     body {
-      background: url('https://i.imgur.com/VaZmzW2.jpg') no-repeat center center fixed;
+      background: url("assets/banneroriginal") no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 80px;
+      color: #ffffff;
       position: relative;
-      overflow: hidden;
+      min-height: 100vh;
     }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 50px;
+    .overlay {
       position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
     }
 
-    .logo {
-      font-size: 1.8em;
-      color: #b86bff;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-    }
-
-    .nav-links li a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1em;
-      padding: 10px 15px;
-      border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.1);
-      transition: 0.3s;
-    }
-
-    .nav-links li a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      color: #b86bff;
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .section-title {
@@ -71,165 +41,94 @@
       font-weight: bold;
       color: #b86bff;
       margin: 40px 0 20px;
+      text-align: center;
     }
 
-    .staff-container {
+    .info-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .profiles-row {
       display: flex;
+      justify-content: space-between;
+      gap: 40px;
       flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      width: 100%;
-      max-width: 1200px;
+      margin-bottom: 60px;
+    }
+
+    .profiles-col {
+      flex: 1;
+      min-width: 280px;
     }
 
     .profile-card {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      overflow: hidden;
-      width: 200px;
+      background: rgba(30, 30, 30, 0.85);
+      border-radius: 15px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      cursor: pointer;
+      padding: 20px;
+      margin-bottom: 30px;
       transition: 0.3s;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     .profile-card:hover {
       transform: scale(1.05);
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     .profile-avatar {
       width: 90px;
       height: 90px;
       border-radius: 50%;
-      margin-top: -45px;
-      border: 3px solid #1a001f;
       object-fit: cover;
-    }
-
-    .profile-info {
-      padding: 10px;
+      border: 3px solid #b86bff;
+      margin-bottom: 10px;
     }
 
     .profile-info h3 {
       margin: 10px 0 5px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
-    .profile-info span,
-    .profile-info p {
+    .profile-info span {
       font-size: 0.9rem;
-      color: #bbb;
+      color: #aaa;
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
+    .profile-info p {
+      font-size: 0.85rem;
+      color: #ccc;
+      margin-top: 8px;
     }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-content {
-      background: #121212;
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 500px;
-      color: #fff;
-      text-align: center;
-    }
-
-    .modal-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* Container para Fundadores e Co-Fundadores */
-    .fundadores-cofundadores-container {
-      display: flex;
-      gap: 50px;
-      justify-content: center;
-      width: 100%;
-      margin-bottom: 50px;
-    }
-
-    .fundadores-container,
-    .cofundadores-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      width: 48%;
-    }
-
-    /* Container para Desenvolvedores */
-    .desenvolvedores-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      width: 100%;
-    }
-
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">ORIGINAL</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Início</a></li>
-      <li><a href="#" class="active">Membros</a></li>
-      <li><a href="#">Comandos</a></li>
-      <li><a href="#">Diretrizes</a></li>
-    </ul>
-  </nav>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="section-title">O que é ser Gestor?</div>
+    <div class="info-box">
+      <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente saudável para todos os membros.</p>
+      <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
+    </div>
 
-  <div class="section-title">Fundadores e Co-Fundadores</div>
-  <div class="fundadores-cofundadores-container">
-    <div class="fundadores-container" id="fundadores"></div>
-    <div class="cofundadores-container" id="cofundadores"></div>
-  </div>
+    <div class="profiles-row">
+      <div class="profiles-col">
+        <div class="section-title">Fundadores</div>
+        <div id="fundadores"></div>
+      </div>
+      <div class="profiles-col">
+        <div class="section-title">Co-Fundadores</div>
+        <div id="cofundadores"></div>
+      </div>
+    </div>
 
-  <div class="section-title">Desenvolvedores</div>
-  <div class="desenvolvedores-container" id="desenvolvedores"></div>
-
-  <div class="modal" id="user-modal">
-    <div class="modal-content">
-      <button class="close-modal" onclick="closeModal()">&times;</button>
-      <img id="modal-avatar" class="modal-avatar">
-      <h2 id="modal-name"></h2>
-      <p id="modal-bio"></p>
+    <div>
+      <div class="section-title">Desenvolvedores</div>
+      <div class="profiles-row" id="desenvolvedores"></div>
     </div>
   </div>
 
@@ -237,7 +136,7 @@
     const perfis = {
       fundadores: [
         { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
-        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' },
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' }
       ],
       cofundadores: [
         { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
@@ -252,7 +151,7 @@
         const res = await fetch(`https://discord-lookup-api-sandy.vercel.app/v1/user/${id}`);
         const data = await res.json();
         return data.avatar?.link + '.png?size=2048' || 'https://i.imgur.com/wubcMzk.jpeg';
-      } catch (e) {
+      } catch {
         return 'https://i.imgur.com/wubcMzk.jpeg';
       }
     }
@@ -272,26 +171,14 @@
       info.innerHTML = `<h3>${user.nome}</h3><span>${user.cargo}</span><p>${user.entrada}</p>`;
       card.appendChild(info);
 
-      card.onclick = () => abrirModal(user, avatar.src);
       container.appendChild(card);
     }
 
-    function abrirModal(user, avatarUrl) {
-      document.getElementById('modal-avatar').src = avatarUrl;
-      document.getElementById('modal-name').textContent = `${user.nome} - ${user.cargo}`;
-      document.getElementById('modal-bio').textContent = user.bio;
-      document.getElementById('user-modal').classList.add('show');
-    }
-
-    function closeModal() {
-      document.getElementById('user-modal').classList.remove('show');
-    }
-
     window.onload = () => {
-      for (const fundador of perfis.fundadores) criarPerfil(fundador, 'fundadores');
-      for (const cofundador of perfis.cofundadores) criarPerfil(cofundador, 'cofundadores');
-      for (const dev of perfis.desenvolvedores) criarPerfil(dev, 'desenvolvedores');
-    }
+      for (const p of perfis.fundadores) criarPerfil(p, 'fundadores');
+      for (const p of perfis.cofundadores) criarPerfil(p, 'cofundadores');
+      for (const p of perfis.desenvolvedores) criarPerfil(p, 'desenvolvedores');
+    };
   </script>
 </body>
 </html>
