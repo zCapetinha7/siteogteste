@@ -15,8 +15,9 @@
     }
 
     body {
-      background: linear-gradient(135deg, #2c003e, #1a001f);
-      color: #ffffff;
+      background: url('https://i.imgur.com/VaZmzW2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -34,7 +35,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: #1a001f;
+      background-color: rgba(0, 0, 0, 0.7);
       z-index: 1000;
     }
 
@@ -82,12 +83,12 @@
     }
 
     .profile-card {
-      background: #1e1e1e;
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
       overflow: hidden;
       width: 200px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       cursor: pointer;
       transition: 0.3s;
       opacity: 0;
@@ -104,12 +105,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    .profile-banner {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
     }
 
     .profile-avatar {
@@ -207,38 +202,9 @@
       width: 100%;
     }
 
-    /* Animação das estrelas */
-    .star {
-      position: absolute;
-      border-radius: 50%;
-      background-color: #fff;
-      opacity: 0.6;
-      animation: twinkle 1.5s infinite alternate;
-    }
-
-    @keyframes twinkle {
-      0% {
-        transform: scale(1) translateY(0);
-        opacity: 0.6;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.5) translateY(20px);
-        opacity: 0.6;
-      }
-    }
-
-    .star:nth-child(odd) {
-      animation-duration: 2s;
-    }
-
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-
   <nav class="navbar">
     <div class="logo">ORIGINAL</div>
     <ul class="nav-links">
@@ -268,35 +234,16 @@
   </div>
 
   <script>
-    // Função para criar as estrelas
-    function createStars(num) {
-      const container = document.querySelector('.stars');
-      for (let i = 0; i < num; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.width = `${Math.random() * 3 + 1}px`;
-        star.style.height = star.style.width;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.left = `${Math.random() * 100}%`;
-        container.appendChild(star);
-      }
-    }
-
-    // Cria as estrelas quando a página carrega
-    window.onload = () => {
-      createStars(200);
-    }
-
     const perfis = {
       fundadores: [
-        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
-        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' },
+        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' },
       ],
       cofundadores: [
-        { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', banner: 'https://via.placeholder.com/200x100', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
+        { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
       ],
       desenvolvedores: [
-        { id: '1080175803024814142', nome: 'DarkMode', cargo: 'Dev', banner: 'https://via.placeholder.com/200x100', entrada: '15/03/2023', bio: 'Criador do CMSP Hacks, conhecido pelo uso intensivo de IA.' }
+        { id: '1080175803024814142', nome: 'DarkMode', cargo: 'Dev', entrada: '15/03/2023', bio: 'Criador do CMSP Hacks, conhecido pelo uso intensivo de IA.' }
       ]
     };
 
@@ -314,11 +261,6 @@
       const container = document.getElementById(containerId);
       const card = document.createElement('div');
       card.className = 'profile-card';
-
-      const banner = document.createElement('img');
-      banner.className = 'profile-banner';
-      banner.src = user.banner;
-      card.appendChild(banner);
 
       const avatar = document.createElement('img');
       avatar.className = 'profile-avatar';
