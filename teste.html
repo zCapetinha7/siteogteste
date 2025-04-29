@@ -15,11 +15,15 @@
     }
 
     body {
-      background: url('assets/maisrxbannerog.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffffff;
+      background: url('assets/banneroriginal') center center/cover no-repeat;
+      color: #fff;
       min-height: 100vh;
-      backdrop-filter: brightness(0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.7);
     }
 
     .navbar {
@@ -30,7 +34,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 1000;
     }
 
@@ -61,52 +65,79 @@
       color: #b86bff;
     }
 
-    main {
-      padding-top: 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
     .section-title {
       font-size: 2rem;
       font-weight: bold;
       color: #b86bff;
       margin: 40px 0 20px;
+      text-align: center;
     }
 
-    .staff-section {
+    .section-description {
+      text-align: center;
+      font-size: 1rem;
+      max-width: 800px;
+      padding: 0 20px;
+      margin-bottom: 40px;
+    }
+
+    .staff-container {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
+      justify-content: space-around;
       width: 100%;
       max-width: 1200px;
+      gap: 30px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
 
     .profile-card {
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 15px;
-      width: 200px;
-      padding: 20px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 250px;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       cursor: pointer;
       transition: 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
     }
 
     .profile-card:hover {
       transform: scale(1.05);
     }
 
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .profile-avatar {
       width: 90px;
       height: 90px;
       border-radius: 50%;
-      margin-bottom: 10px;
+      margin-top: -45px;
+      border: 3px solid #1a001f;
       object-fit: cover;
-      border: 2px solid #b86bff;
+    }
+
+    .profile-info {
+      padding: 10px;
+    }
+
+    .profile-info h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1rem;
+    }
+
+    .profile-info span,
+    .profile-info p {
+      font-size: 0.9rem;
+      color: #bbb;
     }
 
     .modal {
@@ -114,12 +145,12 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.8);
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 2000;
     }
 
     .modal.show {
@@ -127,24 +158,12 @@
     }
 
     .modal-content {
-      background: #1a001f;
+      background: #121212;
       padding: 30px;
       border-radius: 15px;
-      max-width: 400px;
+      max-width: 500px;
+      color: #fff;
       text-align: center;
-      color: #fff;
-      position: relative;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.5em;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
     }
 
     .modal-avatar {
@@ -152,7 +171,17 @@
       height: 100px;
       border-radius: 50%;
       margin-bottom: 15px;
-      object-fit: cover;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -161,36 +190,39 @@
     <div class="logo">ORIGINAL</div>
     <ul class="nav-links">
       <li><a href="index.html">Início</a></li>
-      <li><a href="#">Membros</a></li>
+      <li><a href="#" class="active">Membros</a></li>
       <li><a href="#">Comandos</a></li>
       <li><a href="#">Diretrizes</a></li>
     </ul>
   </nav>
 
-  <main>
-    <div class="section-title">O que é ser Gestor?</div>
-    <div style="max-width: 800px; padding: 0 20px; margin-bottom: 40px;">
-      <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente saudável para todos os membros.</p>
-      <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
+  <div class="section-title">O que é ser Gestor?</div>
+  <div class="section-description">
+    <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente saudável para todos os membros.</p>
+    <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
+  </div>
+
+  <div class="staff-container">
+    <div>
+      <div class="section-title">Fundadores</div>
+      <div id="fundadores"></div>
     </div>
+    <div>
+      <div class="section-title">Co-Fundadores</div>
+      <div id="cofundadores"></div>
+    </div>
+  </div>
 
-    <div class="section-title">Fundadores</div>
-    <div class="staff-section" id="fundadores"></div>
+  <div class="section-title">Desenvolvedores</div>
+  <div class="staff-container" id="desenvolvedores"></div>
 
-    <div class="section-title">Co-Fundadores</div>
-    <div class="staff-section" id="cofundadores"></div>
-
-    <div class="section-title">Desenvolvedores</div>
-    <div class="staff-section" id="desenvolvedores"></div>
-  </main>
-
-  <div class="modal" id="modal">
+  <div class="modal" id="user-modal">
     <div class="modal-content">
-      <button class="close-modal" onclick="fecharModal()">&times;</button>
+      <button class="close-modal" onclick="closeModal()">&times;</button>
       <img id="modal-avatar" class="modal-avatar">
-      <h2 id="modal-nome"></h2>
-      <p><strong id="modal-cargo"></strong></p>
-      <p><em id="modal-entrada"></em></p>
+      <h2 id="modal-name"></h2>
+      <p id="modal-cargo"></p>
+      <p id="modal-entrada"></p>
       <p id="modal-bio"></p>
     </div>
   </div>
@@ -198,7 +230,8 @@
   <script>
     const perfis = {
       fundadores: [
-        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor.' },
+        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' }
       ],
       cofundadores: [
         { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
@@ -228,36 +261,32 @@
       avatar.src = await buscarAvatar(user.id);
       card.appendChild(avatar);
 
-      const name = document.createElement('h3');
-      name.textContent = user.nome;
-      card.appendChild(name);
-
-      const role = document.createElement('p');
-      role.textContent = user.cargo;
-      card.appendChild(role);
+      const info = document.createElement('div');
+      info.className = 'profile-info';
+      info.innerHTML = `<h3>${user.nome}</h3><span>${user.cargo}</span><p>${user.entrada}</p>`;
+      card.appendChild(info);
 
       card.onclick = () => abrirModal(user, avatar.src);
-
       container.appendChild(card);
     }
 
     function abrirModal(user, avatarUrl) {
       document.getElementById('modal-avatar').src = avatarUrl;
-      document.getElementById('modal-nome').textContent = user.nome;
-      document.getElementById('modal-cargo').textContent = user.cargo;
+      document.getElementById('modal-name').textContent = user.nome;
+      document.getElementById('modal-cargo').textContent = `Cargo: ${user.cargo}`;
       document.getElementById('modal-entrada').textContent = `Entrou em: ${user.entrada}`;
       document.getElementById('modal-bio').textContent = user.bio;
-      document.getElementById('modal').classList.add('show');
+      document.getElementById('user-modal').classList.add('show');
     }
 
-    function fecharModal() {
-      document.getElementById('modal').classList.remove('show');
+    function closeModal() {
+      document.getElementById('user-modal').classList.remove('show');
     }
 
     window.onload = () => {
-      for (const user of perfis.fundadores) criarPerfil(user, 'fundadores');
-      for (const user of perfis.cofundadores) criarPerfil(user, 'cofundadores');
-      for (const user of perfis.desenvolvedores) criarPerfil(user, 'desenvolvedores');
+      for (const fundador of perfis.fundadores) criarPerfil(fundador, 'fundadores');
+      for (const cofundador of perfis.cofundadores) criarPerfil(cofundador, 'cofundadores');
+      for (const dev of perfis.desenvolvedores) criarPerfil(dev, 'desenvolvedores');
     }
   </script>
 </body>
