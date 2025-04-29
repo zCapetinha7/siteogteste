@@ -4,56 +4,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equipe Original Gifs</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('assets/banneroriginal');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    body::after {
-      content: "";
+    body {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/maisrxbannerog.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding-top: 80px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
     }
 
-    .container {
-      padding: 50px;
-      color: white;
+    .logo {
+      font-size: 1.8em;
+      color: #b86bff;
+      font-weight: bold;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      margin-bottom: 60px;
-    }
-
-    .profiles {
+    .nav-links {
+      list-style: none;
       display: flex;
+      gap: 15px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1em;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #b86bff;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b86bff;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+
+    .staff-section {
+      display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 30px;
+      padding: 0 20px;
     }
 
     .profile-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.7);
       border-radius: 12px;
-      padding: 15px;
-      width: 250px;
+      text-align: center;
+      padding: 20px;
+      width: 200px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: 0.3s;
     }
 
     .profile-card:hover {
@@ -61,15 +92,22 @@
     }
 
     .profile-avatar {
-      width: 100%;
-      height: 250px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
       object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      border: 3px solid #b86bff;
     }
 
-    .profile-info {
-      text-align: center;
+    .profile-info h3 {
+      margin: 10px 0 5px;
+      color: #fff;
+    }
+
+    .profile-info span,
+    .profile-info p {
+      color: #bbb;
+      font-size: 0.9rem;
     }
 
     .modal {
@@ -77,12 +115,12 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.8);
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
-      z-index: 999;
+      z-index: 2000;
     }
 
     .modal.show {
@@ -90,79 +128,79 @@
     }
 
     .modal-content {
-      background: #1a1a1a;
+      background: #121212;
       padding: 30px;
-      border-radius: 12px;
+      border-radius: 15px;
       max-width: 500px;
-      width: 90%;
-      color: white;
-      position: relative;
+      color: #fff;
+      text-align: center;
     }
 
     .modal-avatar {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .close-modal {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      background: transparent;
+      top: 20px;
+      right: 30px;
+      font-size: 1.5rem;
+      background: none;
       border: none;
-      color: white;
-      font-size: 24px;
+      color: #fff;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="section">
-      <h2>Fundadores</h2>
-      <div id="fundadores" class="profiles"></div>
-    </div>
+  <nav class="navbar">
+    <div class="logo">ORIGINAL</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="#fundadores">Fundadores</a></li>
+      <li><a href="#cofundadores">Co-Fundadores</a></li>
+      <li><a href="#desenvolvedores">Desenvolvedores</a></li>
+    </ul>
+  </nav>
 
-    <div class="section">
-      <h2>Co-Fundadores</h2>
-      <div id="cofundadores" class="profiles"></div>
-    </div>
-
-    <div class="section">
-      <h2>Desenvolvedores</h2>
-      <div id="desenvolvedores" class="profiles"></div>
-    </div>
+  <div class="section-title">O que é ser Gestor?</div>
+  <div style="max-width: 800px; margin: 0 auto; text-align: center; padding: 0 20px;">
+    <p>Ser gestor é ter a responsabilidade de organizar, gerenciar e manter a harmonia do servidor. O gestor deve garantir que as regras sejam cumpridas, resolver conflitos e criar um ambiente saudável para todos os membros.</p>
+    <p>Além disso, um gestor tem a missão de liderar a equipe, tomar decisões importantes e sempre buscar melhorias para o servidor e para os usuários. É um papel que exige dedicação, paciência e muito comprometimento.</p>
   </div>
 
-  <!-- MODAL -->
+  <div class="section-title" id="fundadores">Fundadores</div>
+  <div class="staff-section" id="fundadores-container"></div>
+
+  <div class="section-title" id="cofundadores">Co-Fundadores</div>
+  <div class="staff-section" id="cofundadores-container"></div>
+
+  <div class="section-title" id="desenvolvedores">Desenvolvedores</div>
+  <div class="staff-section" id="desenvolvedores-container"></div>
+
   <div class="modal" id="user-modal">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal()">&times;</button>
       <img id="modal-avatar" class="modal-avatar">
       <h2 id="modal-name"></h2>
-      <p><strong>Cargo:</strong> <span id="modal-role"></span></p>
-      <p><strong>Entrou em:</strong> <span id="modal-entry"></span></p>
-      <div style="margin-top: 20px; text-align: left;">
-        <strong>Sobre mim:</strong>
-        <p id="modal-bio" style="margin-top: 5px;"></p>
-      </div>
+      <p id="modal-bio"></p>
     </div>
   </div>
 
   <script>
     const perfis = {
       fundadores: [
-        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor, conhecido por sua liderança excêntrica.' },
-        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo, mesmo quando parece inativo.' }
+        { id: '701558357286191204', nome: 'Hyxam', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Hyxam é um dos fundadores do servidor.' },
+        { id: '358074964533837825', nome: 'Kontra', cargo: 'Fundador', entrada: '01/01/2023', bio: 'Kontra é o fundador mais ativo.' }
       ],
       cofundadores: [
-        { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', entrada: '01/02/2023', bio: 'Seven administra a parte financeira e é viciado em Roblox.' }
+        { id: '1134639635780350142', nome: 'Seven', cargo: 'Co-Fundador', entrada: '01/02/2023', bio: 'Seven administra a parte financeira.' }
       ],
       desenvolvedores: [
-        { id: '1080175803024814142', nome: 'DarkMode', cargo: 'Dev', entrada: '15/03/2023', bio: 'Criador do CMSP Hacks, conhecido pelo uso intensivo de IA.' }
+        { id: '1080175803024814142', nome: 'DarkMode', cargo: 'Dev', entrada: '15/03/2023', bio: 'Criador do CMSP Hacks.' }
       ]
     };
 
@@ -171,7 +209,7 @@
         const res = await fetch(`https://discord-lookup-api-sandy.vercel.app/v1/user/${id}`);
         const data = await res.json();
         return data.avatar?.link + '.png?size=2048' || 'https://i.imgur.com/wubcMzk.jpeg';
-      } catch {
+      } catch (e) {
         return 'https://i.imgur.com/wubcMzk.jpeg';
       }
     }
@@ -197,9 +235,7 @@
 
     function abrirModal(user, avatarUrl) {
       document.getElementById('modal-avatar').src = avatarUrl;
-      document.getElementById('modal-name').textContent = user.nome;
-      document.getElementById('modal-role').textContent = user.cargo;
-      document.getElementById('modal-entry').textContent = user.entrada;
+      document.getElementById('modal-name').textContent = `${user.nome} - ${user.cargo}`;
       document.getElementById('modal-bio').textContent = user.bio;
       document.getElementById('user-modal').classList.add('show');
     }
@@ -209,10 +245,10 @@
     }
 
     window.onload = () => {
-      perfis.fundadores.forEach(p => criarPerfil(p, 'fundadores'));
-      perfis.cofundadores.forEach(p => criarPerfil(p, 'cofundadores'));
-      perfis.desenvolvedores.forEach(p => criarPerfil(p, 'desenvolvedores'));
-    };
+      perfis.fundadores.forEach(p => criarPerfil(p, 'fundadores-container'));
+      perfis.cofundadores.forEach(p => criarPerfil(p, 'cofundadores-container'));
+      perfis.desenvolvedores.forEach(p => criarPerfil(p, 'desenvolvedores-container'));
+    }
   </script>
 </body>
 </html>
